@@ -1,17 +1,29 @@
 import { useState, useEffect } from 'react';
 import { Search, Users } from 'lucide-react';
 import OfficialCard from '../components/OfficialCard';
-import { getOfficials } from '../firebase/services';
+import { getOfficials, getMinistries } from '../firebase/services';
 
 export default function Home() {
   const [officials, setOfficials] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
+  const [ministries, setMinistries] = useState([]);
+  const [selectedMinistry, setSelectedMinistry] = useState('');
+
+  // Fetch daftar kementerian saat komponen dimuat
+  useEffect(() => {
+    const fetchMinistries = async () => {
+      const data = await getMinistries();
+      setMinistries(data);
+    };
+
+    fetchMinistries();
+  }, []);
 
   useEffect(() => {
     const fetchOfficials = async () => {
       setLoading(true);
-      const data = await getOfficials(searchQuery);
+      const data = await getOfficials(searchQuery, selectedMinistry);
       setOfficials(data);
       setLoading(false);
     };
@@ -22,7 +34,7 @@ export default function Home() {
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [searchQuery]);
+  }, [searchQuery, selectedMinistry]);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -53,11 +65,40 @@ export default function Home() {
 
       {/* Directory Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex items-center gap-3 mb-8">
+        <div className="flex items-center gap-3 mb-6">
           <Users className="w-6 h-6 text-primary-600" />
           <h2 className="text-2xl font-bold text-slate-900">Direktori Pejabat</h2>
         </div>
-        
+
+        {/* Tab Filter Kementerian */}
+        <div className="mb-8 -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            <button
+              onClick={() => setSelectedMinistry('')}
+              className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                selectedMinistry === ''
+                  ? 'bg-primary-600 text-white'
+                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              Semua
+            </button>
+            {ministries.map((ministry) => (
+              <button
+                key={ministry}
+                onClick={() => setSelectedMinistry(ministry)}
+                className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  selectedMinistry === ministry
+                    ? 'bg-primary-600 text-white'
+                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                {ministry}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {loading ? (
           <div className="flex justify-center py-12">
             <div className="w-8 h-8 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin"></div>

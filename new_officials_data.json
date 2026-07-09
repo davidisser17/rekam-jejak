@@ -1,0 +1,303 @@
+[
+  {
+    "official": {
+      "name": "Sugiono",
+      "currentAgency": "Kementerian Luar Negeri",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Menteri_Luar_Negeri_Sugiono.jpg",
+      "currentPosition": "Menteri Luar Negeri Indonesia ke-18"
+    },
+    "trackRecords": [
+      {
+        "position": "Sekretaris Jenderal Partai Gerindra",
+        "agency": "Partai Gerakan Indonesia Raya",
+        "startDate": "2025-08-01",
+        "endDate": null
+      },
+      {
+        "position": "Menteri Luar Negeri",
+        "agency": "Kementerian Luar Negeri",
+        "startDate": "2024-10-21",
+        "endDate": null
+      },
+      {
+        "position": "Wakil Ketua Komisi I DPR RI",
+        "agency": "Dewan Perwakilan Rakyat RI",
+        "startDate": "2019-10-01",
+        "endDate": "2024-10-21"
+      },
+      {
+        "position": "Anggota DPR RI Dapil Jawa Tengah I",
+        "agency": "Dewan Perwakilan Rakyat RI",
+        "startDate": "2019-10-01",
+        "endDate": "2024-10-21"
+      },
+      {
+        "position": "Letnan Satu Infanteri Kopassus",
+        "agency": "TNI Angkatan Darat",
+        "startDate": "2002",
+        "endDate": "2004"
+      }
+    ],
+    "news": [
+      {
+        "title": "Profil Sugiono, Anak Ideologis Prabowo yang Digadang-gadang Jadi Menlu",
+        "content": "Sugiono, kader awal Partai Gerindra sejak 2008 dan lulusan Norwich University Amerika Serikat, digadang menjadi Menteri Luar Negeri. Sebelumnya ia menjabat Wakil Ketua Komisi I DPR RI yang membidangi pertahanan, luar negeri, dan intelijen, serta merupakan Direktur Kampanye Badan Pemenangan Nasional Prabowo-Sandiaga pada Pemilu 2019.",
+        "sentiment": "Positif",
+        "date": "2024-09-14",
+        "sourceName": "Tempo.co",
+        "sourceUrl": "https://nasional.tempo.co/read/1916225/profil-sugiono-anak-ideologis-prabowo-yang-digadang-gadang-jadi-menlu"
+      },
+      {
+        "title": "Sosok Menteri Luar Negeri Sugiono, Alumnus Berprestasi SMA Taruna Nusantara",
+        "content": "Sugiono resmi dilantik menjadi Menteri Luar Negeri ke-18 pada Kabinet Merah Putih. Ia merupakan alumni SMA Taruna Nusantara angkatan V bersama Agus Harimurti Yudhoyono dan memiliki latar belakang militer sebagai mantan perwira Kopassus serta pendidikan di Norwich University bidang Teknik Komputer.",
+        "sentiment": "Positif",
+        "date": "2024-10-26",
+        "sourceName": "Kompas.com",
+        "sourceUrl": "https://www.kompas.com/edu/read/2024/10/26/135256871/sosok-menteri-luar-negeri-sugiono-alumnus-berprestasi-sma-taruna-nusantara"
+      }
+    ],
+    "crimes": []
+  },
+  {
+    "official": {
+      "name": "Sjafrie Sjamsoeddin",
+      "currentAgency": "Kementerian Pertahanan",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Sjafrie_Sjamsoeddin%2C_Menteri_Pertahanan_Indonesia_%282025%29.png",
+      "currentPosition": "Menteri Pertahanan Indonesia ke-27"
+    },
+    "trackRecords": [
+      {
+        "position": "Menteri Pertahanan",
+        "agency": "Kementerian Pertahanan",
+        "startDate": "2024-10-21",
+        "endDate": null
+      },
+      {
+        "position": "Wakil Menteri Pertahanan",
+        "agency": "Kementerian Pertahanan",
+        "startDate": "2010-01-06",
+        "endDate": "2014-10-20"
+      },
+      {
+        "position": "Sekretaris Jenderal Kementerian Pertahanan",
+        "agency": "Kementerian Pertahanan",
+        "startDate": "2005-04-15",
+        "endDate": "2010-05-21"
+      },
+      {
+        "position": "Kepala Pusat Penerangan TNI",
+        "agency": "Markas Besar TNI",
+        "startDate": "2002",
+        "endDate": "2005"
+      },
+      {
+        "position": "Panglima Kodam Jaya",
+        "agency": "TNI Angkatan Darat",
+        "startDate": "1997",
+        "endDate": "1998"
+      }
+    ],
+    "news": [
+      {
+        "title": "Sjafrie Sjamsoeddin, Ajudan Soeharto Kini Gantikan Prabowo di Kemenhan",
+        "content": "Sjafrie Sjamsoeddin resmi dilantik sebagai Menteri Pertahanan pada 21 Oktober 2024, menggantikan Prabowo Subianto. Ia merupakan teman seangkatan Prabowo di Akmil 1974 dan mantan ajudan Presiden Soeharto. Sjafrie sebelumnya menjabat sebagai Wakil Menteri Pertahanan periode 2010-2014.",
+        "sentiment": "Netral",
+        "date": "2024-10-21",
+        "sourceName": "CNN Indonesia",
+        "sourceUrl": "https://www.cnnindonesia.com/nasional/20241021110721-32-1157860/sjafrie-sjamsoeddin-ajudan-soeharto-kini-gantikan-prabowo-di-kemenhan"
+      },
+      {
+        "title": "Profil dan Kekayaan Menhan Sjafrie Sjamsoeddin di Kabinet Prabowo-Gibran",
+        "content": "Sjafrie Sjamsoeddin lahir di Makassar pada 30 Oktober 1952 dan merupakan lulusan AKABRI 1974. Ia memiliki karier militer panjang di Kopassus, pernah menjabat Pangdam Jaya pada 1997-1998, Sekjen Kemhan 2005-2010, dan Wamenhan 2010-2014 sebelum akhirnya dipercaya sebagai Menteri Pertahanan.",
+        "sentiment": "Netral",
+        "date": "2024-10-20",
+        "sourceName": "Kompas.com",
+        "sourceUrl": "https://nasional.kompas.com/read/2024/10/20/22093591/profil-dan-kekayaan-menhan-sjafrie-sjamsoeddin-di-kabinet-prabowo-gibran"
+      }
+    ],
+    "crimes": []
+  },
+  {
+    "official": {
+      "name": "Meutya Hafid",
+      "currentAgency": "Kementerian Komunikasi dan Digital",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Menteri_Komunikasi_dan_Digital_Indonesia_Meutya_Viada_Hafid.jpg",
+      "currentPosition": "Menteri Komunikasi dan Digital Indonesia ke-8"
+    },
+    "trackRecords": [
+      {
+        "position": "Menteri Komunikasi dan Digital",
+        "agency": "Kementerian Komunikasi dan Digital",
+        "startDate": "2024-10-21",
+        "endDate": null
+      },
+      {
+        "position": "Ketua Komisi I DPR RI",
+        "agency": "Dewan Perwakilan Rakyat RI",
+        "startDate": "2019-10-01",
+        "endDate": "2024-10-21"
+      },
+      {
+        "position": "Anggota DPR RI Dapil Sumatera Utara I",
+        "agency": "Dewan Perwakilan Rakyat RI",
+        "startDate": "2010-08-30",
+        "endDate": "2024-10-21"
+      },
+      {
+        "position": "Wartawan dan Presenter",
+        "agency": "Metro TV",
+        "startDate": "2005",
+        "endDate": "2010"
+      }
+    ],
+    "news": [
+      {
+        "title": "Komdigi blokir konten Magdalene, serupa pembredelan era Orde Baru",
+        "content": "Kementerian Komunikasi dan Digital di bawah Meutya Hafid menuai kritik setelah melakukan pemblokiran terhadap konten Magdalene mengenai hasil investigasi Tim Advokasi untuk Demokrasi terkait penyiraman air keras terhadap Andrie Yunus oleh anggota TNI. Organisasi masyarakat sipil menilai langkah ini berpotensi melanggar UU Pers.",
+        "sentiment": "Negatif",
+        "date": "2026-04-09",
+        "sourceName": "BBC News Indonesia",
+        "sourceUrl": "https://www.bbc.com/indonesia/articles/c0mjx7l781go"
+      },
+      {
+        "title": "8 Platform Patuhi PP TUNAS, Komdigi Deadline hingga Juni 2026",
+        "content": "Menteri Komunikasi dan Digital Meutya Hafid menerbitkan Peraturan Menteri Komdigi Nomor 9 Tahun 2026 sebagai aturan pelaksana PP Nomor 17 Tahun 2025 tentang Tata Kelola Penyelenggaraan Sistem Elektronik dalam Pelindungan Anak (PP TUNAS). Regulasi ini mewajibkan platform digital mematuhi aturan perlindungan anak di ruang digital.",
+        "sentiment": "Positif",
+        "date": "2026-05-09",
+        "sourceName": "SINDOnews",
+        "sourceUrl": "https://nasional.sindonews.com/read/1702287/15/8-platform-patuhi-pp-tunas-komdigi-deadline-hingga-juni-2026-1777626345"
+      }
+    ],
+    "crimes": []
+  },
+  {
+    "official": {
+      "name": "Fadli Zon",
+      "currentAgency": "Kementerian Kebudayaan",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Fadli_Zon%2C_Menteri_Kebudayaan_Indonesia.jpg",
+      "currentPosition": "Menteri Kebudayaan Indonesia ke-4"
+    },
+    "trackRecords": [
+      {
+        "position": "Menteri Kebudayaan",
+        "agency": "Kementerian Kebudayaan",
+        "startDate": "2024-10-21",
+        "endDate": null
+      },
+      {
+        "position": "Ketua BKSAP DPR RI",
+        "agency": "Dewan Perwakilan Rakyat RI",
+        "startDate": "2019-11-04",
+        "endDate": "2024-10-21"
+      },
+      {
+        "position": "Wakil Ketua DPR RI Bidang Politik dan Keamanan",
+        "agency": "Dewan Perwakilan Rakyat RI",
+        "startDate": "2014-10-02",
+        "endDate": "2019-10-01"
+      },
+      {
+        "position": "Anggota DPR RI Dapil Jawa Barat V",
+        "agency": "Dewan Perwakilan Rakyat RI",
+        "startDate": "2014-10-01",
+        "endDate": "2024-10-21"
+      },
+      {
+        "position": "President GOPAC (Global Organization of Parliamentarians Against Corruption)",
+        "agency": "GOPAC International",
+        "startDate": "2015-10-08",
+        "endDate": "2019-10-21"
+      },
+      {
+        "position": "Anggota MPR RI",
+        "agency": "Majelis Permusyawaratan Rakyat RI",
+        "startDate": "1997",
+        "endDate": "1999"
+      }
+    ],
+    "news": [
+      {
+        "title": "Fadli Zon Jadi Menteri Kebudayaan, Bawa Misi Penulisan Ulang Sejarah Indonesia",
+        "content": "Fadli Zon dilantik sebagai Menteri Kebudayaan pada 21 Oktober 2024. Ia merupakan sejarawan yang meraih gelar doktor Ilmu Sejarah dari Universitas Indonesia dan mendirikan Fadli Zon Library. Sebagai Menbud, ia memprakarsai proyek penulisan ulang sejarah Indonesia yang melibatkan lebih dari seratus sejarawan.",
+        "sentiment": "Netral",
+        "date": "2024-10-21",
+        "sourceName": "Detik.com",
+        "sourceUrl": "https://news.detik.com/berita/d-7762339/dpr-lantik-anggota-paw-pengganti-fadli-zon-sugiono-ada-jamal-mirdad"
+      },
+      {
+        "title": "Fadli Zon Jadi Wakil Presiden Liga Parlemen Dunia untuk Palestina",
+        "content": "Fadli Zon ditunjuk sebagai Wakil Presiden Liga Parlemen Dunia untuk Al-Quds (Palestina) dalam Konferensi Liga Parlemen Dunia ketiga di Malaysia. Indonesia dipercaya oleh parlemen 40 negara untuk mengoordinasikan kegiatan parlemen dunia terkait isu Palestina.",
+        "sentiment": "Positif",
+        "date": "2020-02-10",
+        "sourceName": "Tempo.co",
+        "sourceUrl": "https://nasional.tempo.co/read/1305486/fadli-zon-jadi-wakil-presiden-liga-parlemen-dunia-untuk-palestina"
+      }
+    ],
+    "crimes": []
+  },
+  {
+    "official": {
+      "name": "Abdul Mu'ti",
+      "currentAgency": "Kementerian Pendidikan Dasar dan Menengah",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Menteri_pendidikan_indonesia.jpg",
+      "currentPosition": "Menteri Pendidikan Dasar dan Menengah Indonesia ke-30"
+    },
+    "trackRecords": [
+      {
+        "position": "Menteri Pendidikan Dasar dan Menengah",
+        "agency": "Kementerian Pendidikan Dasar dan Menengah",
+        "startDate": "2024-10-21",
+        "endDate": null
+      },
+      {
+        "position": "Sekretaris Umum Pimpinan Pusat Muhammadiyah",
+        "agency": "Pimpinan Pusat Muhammadiyah",
+        "startDate": "2022-11-20",
+        "endDate": null
+      },
+      {
+        "position": "Guru Besar Bidang Pendidikan Agama Islam",
+        "agency": "UIN Syarif Hidayatullah Jakarta",
+        "startDate": "2020-09-02",
+        "endDate": null
+      },
+      {
+        "position": "Ketua Badan Standar Nasional Pendidikan",
+        "agency": "BSNP",
+        "startDate": "2019",
+        "endDate": "2021"
+      },
+      {
+        "position": "Ketua Badan Akreditasi Nasional Sekolah/Madrasah",
+        "agency": "BAN-S/M",
+        "startDate": "2011",
+        "endDate": "2017"
+      },
+      {
+        "position": "Dosen",
+        "agency": "IAIN Walisongo Semarang",
+        "startDate": "1993",
+        "endDate": "2013"
+      }
+    ],
+    "news": [
+      {
+        "title": "Mendikdasmen Abdul Mu'ti: Pendekatan Deep Learning Akan Diterapkan di Kurikulum Nasional",
+        "content": "Menteri Pendidikan Dasar dan Menengah Abdul Mu'ti menegaskan bahwa pendekatan deep learning melalui tiga prinsip utama yaitu mindfulness, meaningful, dan joyful akan diterapkan dalam sistem pendidikan nasional. Ia menegaskan bahwa deep learning adalah pendekatan pembelajaran, bukan pengganti Kurikulum Merdeka yang saat ini berlaku.",
+        "sentiment": "Positif",
+        "date": "2024-12-31",
+        "sourceName": "Tempo.co",
+        "sourceUrl": "https://www.tempo.co/politik/mendikdasmen-abdul-mu-ti-pendekatan-deep-learning-akan-diterapkan-di-kurikulum-nasional-1188242"
+      },
+      {
+        "title": "Profil Abdul Mu'ti: Tokoh Muhammadiyah yang Kini Pimpin Kemendikdasmen",
+        "content": "Abdul Mu'ti, Sekretaris Umum PP Muhammadiyah dan Guru Besar UIN Jakarta, resmi dilantik sebagai Menteri Pendidikan Dasar dan Menengah. Sebelumnya ia pernah menolak tawaran menjadi Wakil Menteri Pendidikan pada 2020 dan dikenal sebagai tokoh muslim moderat yang aktif menyuarakan perdamaian dan pluralisme.",
+        "sentiment": "Positif",
+        "date": "2024-10-21",
+        "sourceName": "Detik.com",
+        "sourceUrl": "https://news.detik.com/berita/d-6746463/abdul-muti-jelaskan-soal-krismuha-simpatisan-muhammadiyah-beragama-kristen"
+      }
+    ],
+    "crimes": []
+  }
+]
