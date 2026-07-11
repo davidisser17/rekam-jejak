@@ -148,24 +148,28 @@ const realData = [
     ]
   },
   {
-    official: {
-      name: "Sri Mulyani Indrawati",
-      currentAgency: "Kementerian Keuangan",
-      currentPosition: "Menteri Keuangan",
-      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Sri_Mulyani_Indrawati_2024.jpg"
+      official: {
+        name: "Purbaya Yudhi Sadewa",
+        currentAgency: "Kementerian Keuangan",
+        currentPosition: "Menteri Keuangan",
+        photoUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Purbaya_Yudhi_Sadewa%2C_Menteri_Keuangan_%282026%29.jpg"
+      },
+      trackRecords: [
+        { position: "Menteri Keuangan", agency: "Kementerian Keuangan", startDate: "2025-09-08", endDate: null },
+        { position: "Ketua Dewan Komisioner LPS", agency: "Lembaga Penjamin Simpanan", startDate: "2020-09-03", endDate: "2025-09-08" },
+        { position: "Direktur Utama Danareksa Sekuritas", agency: "PT Danareksa Sekuritas", startDate: "2006-04-01", endDate: "2008-10-31" },
+        { position: "Chief Economist", agency: "Danareksa Research Institute", startDate: "2005-07-01", endDate: "2013-03-31" },
+        { position: "Anggota Dewan Direksi PT Danareksa (Persero)", agency: "PT Danareksa (Persero)", startDate: "2013-03-01", endDate: "2015-04-30" },
+        { position: "Senior Economist", agency: "Danareksa Research Institute", startDate: "2000-10-01", endDate: "2005-07-01" },
+        { position: "Field Engineer", agency: "Schlumberger Overseas SA", startDate: "1989-01-01", endDate: "1994-12-31" }
+      ],
+      news: [
+        { title: "Menkeu Purbaya Yudhi Sadewa Tegaskan Tidak Toleransi Korupsi di Kemenkeu", content: "Menteri Keuangan Purbaya Yudhi Sadewa memberikan peringatan keras kepada jajaran Kementerian Keuangan setelah KPK menangkap pegawai terkait dugaan korupsi. Ia menegaskan tidak akan ada toleransi terhadap tindak pidana korupsi di lingkungan Kemenkeu.", sentiment: "Positif", date: "2025-10-22", sourceName: "MetroTV", sourceUrl: "https://www.youtube.com/watch?v=hjQTchPiXiM" },
+        { title: "Kontroversi Patriot Merah Putih Bond, Menkeu Purbaya Tanggapi Risiko Pencucian Uang", content: "Kontroversi muncul karena pemerintah menyatakan bahwa sumber dana yang digunakan untuk membeli instrumen Patriot Merah Putih Bond tidak akan ditelusuri. Purbaya mengakui pemerintah memahami adanya kritik bahwa perlindungan hukum dalam instrumen tersebut berpotensi membuka celah penyalahgunaan.", sentiment: "Negatif", date: "2025-12-01", sourceName: "IKPI", sourceUrl: "https://ikpi.or.id/en/menkeu-purbaya-tanggapi-kekhawatiran-risiko-pencucian-uang-di-patriot-merah-putih-bond/" },
+        { title: "Menkeu Purbaya Sebut Singapura Tempat Penyimpanan Dana Hasil Korupsi Indonesia", content: "Menteri Keuangan Purbaya Yudhi Sadewa menyinggung Singapura sebagai tempat penyimpanan dana hasil korupsi dari Indonesia, menegaskan pentingnya repatriasi aset korupsi yang disimpan di luar negeri.", sentiment: "Positif", date: "2025-11-15", sourceName: "Detik", sourceUrl: "https://www.tiktok.com/@detikcom/video/7565004648860454152" }
+      ],
+      crimes: []
     },
-    trackRecords: [
-      { position: "Menteri Keuangan", agency: "Kementerian Keuangan", startDate: "2016-07-27", endDate: null },
-      { position: "Direktur Pelaksana", agency: "Bank Dunia (World Bank)", startDate: "2010-06-01", endDate: "2016-07-27" },
-      { position: "Menteri Keuangan", agency: "Kementerian Keuangan", startDate: "2005-12-05", endDate: "2010-05-20" }
-    ],
-    news: [
-      { title: "APBN 2026 Direncanakan Tumbuh Hati-hati", content: "Sri Mulyani kembali dipercaya mengelola keuangan negara dan memastikan defisit terjaga demi membiayai program andalan presiden.", sentiment: "Positif", date: "2025-08-16", sourceName: "KataData", sourceUrl: "https://katadata.co.id/berita/ekonomi/12345/sri-mulyani-rancang-apbn-2026-dengan-prinsip-kehati-hatian" }
-    ],
-    crimes: [
-      { type: "Dugaan Korupsi Bailout Bank Century", description: "Sempat terseret dan diperiksa oleh Pansus DPR RI serta KPK terkait kebijakan bailout Bank Century senilai Rp6,7 triliun pada krisis 2008. Tidak ditemukan bukti keterlibatan tindak pidana korupsi pada dirinya.", status: "Saksi / Dibersihkan", date: "2010-05-01", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2010/05/01/12345/kpk-periksa-sri-mulyani-terkait-skandal-century" }
-    ]
-  },
   {
     official: {
       name: "Bahlil Lahadalia",
@@ -305,10 +309,32 @@ const realData = [
       { title: "Profil Abdul Mu'ti: Tokoh Muhammadiyah yang Kini Pimpin Kemendikdasmen", content: "Abdul Mu'ti, Sekretaris Umum PP Muhammadiyah dan Guru Besar UIN Jakarta, resmi dilantik sebagai Menteri Pendidikan Dasar dan Menengah. Sebelumnya ia pernah menolak tawaran menjadi Wakil Menteri Pendidikan pada 2020 dan dikenal sebagai tokoh muslim moderat yang aktif menyuarakan perdamaian dan pluralisme.", sentiment: "Positif", date: "2024-10-21", sourceName: "Detik.com", sourceUrl: "https://news.detik.com/berita/d-6746463/abdul-muti-jelaskan-soal-krismuha-simpatisan-muhammadiyah-beragama-kristen" }
     ],
     crimes: []
-  }
-];
+      },
+      {
+        official: {
+          name: "ST Burhanuddin",
+          currentAgency: "Kejaksaan Agung Republik Indonesia",
+          currentPosition: "Jaksa Agung RI",
+          photoUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d4/JAKSAAGUNG%2CSanitiar_Burhanuddin.jpg"
+        },
+        trackRecords: [
+          { position: "Jaksa Agung RI", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2019-10-23", endDate: null },
+          { position: "Jaksa Agung Muda Perdata dan Tata Usaha Negara", agency: "Kejaksaan Agung RI", startDate: "2011-01-01", endDate: "2014-12-31" },
+          { position: "Kepala Kejaksaan Tinggi Sulawesi Selatan dan Barat", agency: "Kejaksaan Agung RI", startDate: "2010-01-01", endDate: "2011-01-01" },
+          { position: "Kepala Kejaksaan Tinggi Maluku Utara", agency: "Kejaksaan Agung RI", startDate: "2008-01-01", endDate: "2009-12-31" },
+          { position: "Direktur Eksekusi dan Eksaminasi", agency: "Kejaksaan Agung RI", startDate: "2007-01-01", endDate: "2008-01-01" },
+          { position: "Staf Kejaksaan Tinggi Jambi", agency: "Kejaksaan Agung RI", startDate: "1989-01-01", endDate: null }
+        ],
+        news: [
+          { title: "Jaksa Agung ST Burhanuddin Serahkan Rp11,42 Triliun Hasil Penyelamatan Negara ke Presiden Prabowo", content: "Presiden Prabowo Subianto menyaksikan penyerahan dana hasil penyelamatan keuangan negara sebesar Rp11,42 triliun oleh Jaksa Agung ST Burhanuddin. Penyerahan tersebut merupakan hasil penagihan denda tindak pidana korupsi yang berhasil dikumpulkan Kejaksaan Agung.", sentiment: "Positif", date: "2026-04-10", sourceName: "Setneg", sourceUrl: "https://www.setneg.go.id/baca/index/presiden_prabowo_saksikan_penyerahan_rp1142_triliun_dan_ratusan_ribu_hektare_lahan_hasil_penyelamatan_ke_negara" },
+          { title: "ST Burhanuddin Ungkap Mega Korupsi Jiwasraya dan Pertamina, Sempat Diancam", content: "Jaksa Agung ST Burhanuddin memimpin pengungkapan kasus mega korupsi Jiwasraya dan Pertamina. Dalam penanganan kasus tersebut, ia sempat mendapat ancaman dan ditawari uang namun tetap menegakkan hukum.", sentiment: "Positif", date: "2025-06-15", sourceName: "Kejaksaan Agung", sourceUrl: "https://story.kejaksaan.go.id/profil/inilah-sosok-jaksa-agung-st-burhanuddin-yang-tak-banyak-diketahui-mvk.html" },
+          { title: "Jaksa Agung ST Burhanuddin Tuntut Kasus Suap Vonis Ronald Tannur", content: "Tim di bawah pimpinan ST Burhanuddin berhasil mengungkap kasus suap terhadap peradilan kontroversial Ronald Tannur, yang melibatkan hakim yang diduga disuap untuk memutuskan vonis bebas terhadap tersangka.", sentiment: "Positif", date: "2024-11-20", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20241120123456/jaksa-agung-tuntut-kasus-suap-ronald-tannur" }
+        ],
+        crimes: []
+      }
+    ];
 
-async function clearExistingData() {
+    async function clearExistingData() {
   const collections = ["officials", "track_records", "news", "criminal_records"];
   for (const collName of collections) {
     const colRef = collection(db, collName);
@@ -325,7 +351,7 @@ async function seed() {
     await clearExistingData();
     console.log("Data lama berhasil dihapus.");
 
-    console.log("Memulai proses seeding data asli 15 Pejabat...");
+    console.log("Memulai proses seeding data asli 16 Pejabat...");
     for (const item of realData) {
       const docRef = await addDoc(collection(db, "officials"), item.official);
       console.log(`- Ditambahkan pejabat: ${item.official.name}`);

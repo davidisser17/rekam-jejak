@@ -1,14 +1,14 @@
-import { collection, getDocs, doc, getDoc, query, where, orderBy } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc, query, where } from "firebase/firestore";
 import { db } from "./config";
 
 // --- Dummy Data Fallbacks ---
 const dummyOfficials = [
   {
     id: "1",
-    name: "Budi Santoso",
+    name: "Purbaya Yudhi Sadewa",
     currentAgency: "Kementerian Keuangan",
-    currentPosition: "Direktur Jenderal Pajak",
-    photoUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
+    currentPosition: "Menteri Keuangan",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Purbaya_Yudhi_Sadewa%2C_Menteri_Keuangan_%282026%29.jpg"
   },
   {
     id: "2",
@@ -58,60 +58,71 @@ const dummyOfficials = [
     currentAgency: "Kementerian Pendidikan Dasar dan Menengah",
     currentPosition: "Menteri Pendidikan Dasar dan Menengah Indonesia ke-30",
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Menteri_pendidikan_indonesia.jpg"
+  },
+  {
+    id: "9",
+    name: "ST Burhanuddin",
+    currentAgency: "Kejaksaan Agung Republik Indonesia",
+    currentPosition: "Jaksa Agung RI",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d4/JAKSAAGUNG%2CSanitiar_Burhanuddin.jpg"
   }
 ];
 
 const dummyTrackRecords = [
-  { id: "t1", officialId: "1", agency: "Kementerian Keuangan", position: "Direktur Jenderal Pajak", startDate: "2022-01-10", endDate: null },
-  { id: "t2", officialId: "1", agency: "Kementerian Keuangan", position: "Direktur Penerimaan Negara", startDate: "2018-05-01", endDate: "2022-01-09" },
-  { id: "t3", officialId: "2", agency: "Kementerian Kesehatan", position: "Menteri Kesehatan", startDate: "2024-10-20", endDate: null },
-  { id: "t4", officialId: "4", agency: "Partai Gerakan Indonesia Raya", position: "Sekretaris Jenderal Partai Gerindra", startDate: "2025-08-01", endDate: null },
-  { id: "t5", officialId: "4", agency: "Kementerian Luar Negeri", position: "Menteri Luar Negeri", startDate: "2024-10-21", endDate: null },
-  { id: "t6", officialId: "4", agency: "Dewan Perwakilan Rakyat RI", position: "Wakil Ketua Komisi I DPR RI", startDate: "2019-10-01", endDate: "2024-10-21" },
-  { id: "t7", officialId: "4", agency: "Dewan Perwakilan Rakyat RI", position: "Anggota DPR RI Dapil Jawa Tengah I", startDate: "2019-10-01", endDate: "2024-10-21" },
-  { id: "t8", officialId: "4", agency: "TNI Angkatan Darat", position: "Letnan Satu Infanteri Kopassus", startDate: "2002", endDate: "2004" },
-  { id: "t9", officialId: "5", agency: "Kementerian Pertahanan", position: "Menteri Pertahanan", startDate: "2024-10-21", endDate: null },
-  { id: "t10", officialId: "5", agency: "Kementerian Pertahanan", position: "Wakil Menteri Pertahanan", startDate: "2010-01-06", endDate: "2014-10-20" },
-  { id: "t11", officialId: "5", agency: "Kementerian Pertahanan", position: "Sekretaris Jenderal Kementerian Pertahanan", startDate: "2005-04-15", endDate: "2010-05-21" },
-  { id: "t12", officialId: "5", agency: "Markas Besar TNI", position: "Kepala Pusat Penerangan TNI", startDate: "2002", endDate: "2005" },
-  { id: "t13", officialId: "5", agency: "TNI Angkatan Darat", position: "Panglima Kodam Jaya", startDate: "1997", endDate: "1998" },
-  { id: "t14", officialId: "6", agency: "Kementerian Komunikasi dan Digital", position: "Menteri Komunikasi dan Digital", startDate: "2024-10-21", endDate: null },
-  { id: "t15", officialId: "6", agency: "Dewan Perwakilan Rakyat RI", position: "Ketua Komisi I DPR RI", startDate: "2019-10-01", endDate: "2024-10-21" },
-  { id: "t16", officialId: "6", agency: "Dewan Perwakilan Rakyat RI", position: "Anggota DPR RI Dapil Sumatera Utara I", startDate: "2010-08-30", endDate: "2024-10-21" },
-  { id: "t17", officialId: "6", agency: "Metro TV", position: "Wartawan dan Presenter", startDate: "2005", endDate: "2010" },
-  { id: "t18", officialId: "7", agency: "Kementerian Kebudayaan", position: "Menteri Kebudayaan", startDate: "2024-10-21", endDate: null },
-  { id: "t19", officialId: "7", agency: "Dewan Perwakilan Rakyat RI", position: "Ketua BKSAP DPR RI", startDate: "2019-11-04", endDate: "2024-10-21" },
-  { id: "t20", officialId: "7", agency: "Dewan Perwakilan Rakyat RI", position: "Wakil Ketua DPR RI Bidang Politik dan Keamanan", startDate: "2014-10-02", endDate: "2019-10-01" },
-  { id: "t21", officialId: "7", agency: "Dewan Perwakilan Rakyat RI", position: "Anggota DPR RI Dapil Jawa Barat V", startDate: "2014-10-01", endDate: "2024-10-21" },
-  { id: "t22", officialId: "7", agency: "GOPAC International", position: "President GOPAC (Global Organization of Parliamentarians Against Corruption)", startDate: "2015-10-08", endDate: "2019-10-21" },
-  { id: "t23", officialId: "7", agency: "Majelis Permusyawaratan Rakyat RI", position: "Anggota MPR RI", startDate: "1997", endDate: "1999" },
-  { id: "t24", officialId: "8", agency: "Kementerian Pendidikan Dasar dan Menengah", position: "Menteri Pendidikan Dasar dan Menengah", startDate: "2024-10-21", endDate: null },
-  { id: "t25", officialId: "8", agency: "Pimpinan Pusat Muhammadiyah", position: "Sekretaris Umum Pimpinan Pusat Muhammadiyah", startDate: "2022-11-20", endDate: null },
-  { id: "t26", officialId: "8", agency: "UIN Syarif Hidayatullah Jakarta", position: "Guru Besar Bidang Pendidikan Agama Islam", startDate: "2020-09-02", endDate: null },
-  { id: "t27", officialId: "8", agency: "BSNP", position: "Ketua Badan Standar Nasional Pendidikan", startDate: "2019", endDate: "2021" },
-  { id: "t28", officialId: "8", agency: "BAN-S/M", position: "Ketua Badan Akreditasi Nasional Sekolah/Madrasah", startDate: "2011", endDate: "2017" },
-  { id: "t29", officialId: "8", agency: "IAIN Walisongo Semarang", position: "Dosen", startDate: "1993", endDate: "2013" }
+  { id: "t1", officialId: "1", agency: "Kementerian Keuangan", position: "Menteri Keuangan", startDate: "2025-09-08", endDate: null },
+  { id: "t2", officialId: "1", agency: "Lembaga Penjamin Simpanan", position: "Ketua Dewan Komisioner LPS", startDate: "2020-09-03", endDate: "2025-09-08" },
+  { id: "t3", officialId: "1", agency: "PT Danareksa Sekuritas", position: "Direktur Utama Danareksa Sekuritas", startDate: "2006-04-01", endDate: "2008-10-31" },
+  { id: "t4", officialId: "2", agency: "Kementerian Kesehatan", position: "Menteri Kesehatan", startDate: "2024-10-20", endDate: null },
+  { id: "t5", officialId: "4", agency: "Partai Gerakan Indonesia Raya", position: "Sekretaris Jenderal Partai Gerindra", startDate: "2025-08-01", endDate: null },
+  { id: "t6", officialId: "4", agency: "Kementerian Luar Negeri", position: "Menteri Luar Negeri", startDate: "2024-10-21", endDate: null },
+  { id: "t7", officialId: "4", agency: "Dewan Perwakilan Rakyat RI", position: "Wakil Ketua Komisi I DPR RI", startDate: "2019-10-01", endDate: "2024-10-21" },
+  { id: "t8", officialId: "4", agency: "Dewan Perwakilan Rakyat RI", position: "Anggota DPR RI Dapil Jawa Tengah I", startDate: "2019-10-01", endDate: "2024-10-21" },
+  { id: "t9", officialId: "4", agency: "TNI Angkatan Darat", position: "Letnan Satu Infanteri Kopassus", startDate: "2002", endDate: "2004" },
+  { id: "t10", officialId: "5", agency: "Kementerian Pertahanan", position: "Menteri Pertahanan", startDate: "2024-10-21", endDate: null },
+  { id: "t11", officialId: "5", agency: "Kementerian Pertahanan", position: "Wakil Menteri Pertahanan", startDate: "2010-01-06", endDate: "2014-10-20" },
+  { id: "t12", officialId: "5", agency: "Kementerian Pertahanan", position: "Sekretaris Jenderal Kementerian Pertahanan", startDate: "2005-04-15", endDate: "2010-05-21" },
+  { id: "t13", officialId: "5", agency: "Markas Besar TNI", position: "Kepala Pusat Penerangan TNI", startDate: "2002", endDate: "2005" },
+  { id: "t14", officialId: "5", agency: "TNI Angkatan Darat", position: "Panglima Kodam Jaya", startDate: "1997", endDate: "1998" },
+  { id: "t15", officialId: "6", agency: "Kementerian Komunikasi dan Digital", position: "Menteri Komunikasi dan Digital", startDate: "2024-10-21", endDate: null },
+  { id: "t16", officialId: "6", agency: "Dewan Perwakilan Rakyat RI", position: "Ketua Komisi I DPR RI", startDate: "2019-10-01", endDate: "2024-10-21" },
+  { id: "t17", officialId: "6", agency: "Dewan Perwakilan Rakyat RI", position: "Anggota DPR RI Dapil Sumatera Utara I", startDate: "2010-08-30", endDate: "2024-10-21" },
+  { id: "t18", officialId: "6", agency: "Metro TV", position: "Wartawan dan Presenter", startDate: "2005", endDate: "2010" },
+  { id: "t19", officialId: "7", agency: "Kementerian Kebudayaan", position: "Menteri Kebudayaan", startDate: "2024-10-21", endDate: null },
+  { id: "t20", officialId: "7", agency: "Dewan Perwakilan Rakyat RI", position: "Ketua BKSAP DPR RI", startDate: "2019-11-04", endDate: "2024-10-21" },
+  { id: "t21", officialId: "7", agency: "Dewan Perwakilan Rakyat RI", position: "Wakil Ketua DPR RI Bidang Politik dan Keamanan", startDate: "2014-10-02", endDate: "2019-10-01" },
+  { id: "t22", officialId: "7", agency: "Dewan Perwakilan Rakyat RI", position: "Anggota DPR RI Dapil Jawa Barat V", startDate: "2014-10-01", endDate: "2024-10-21" },
+  { id: "t23", officialId: "7", agency: "GOPAC International", position: "President GOPAC (Global Organization of Parliamentarians Against Corruption)", startDate: "2015-10-08", endDate: "2019-10-21" },
+  { id: "t24", officialId: "7", agency: "Majelis Permusyawaratan Rakyat RI", position: "Anggota MPR RI", startDate: "1997", endDate: "1999" },
+  { id: "t25", officialId: "8", agency: "Kementerian Pendidikan Dasar dan Menengah", position: "Menteri Pendidikan Dasar dan Menengah", startDate: "2024-10-21", endDate: null },
+  { id: "t26", officialId: "8", agency: "Pimpinan Pusat Muhammadiyah", position: "Sekretaris Umum Pimpinan Pusat Muhammadiyah", startDate: "2022-11-20", endDate: null },
+  { id: "t27", officialId: "8", agency: "UIN Syarif Hidayatullah Jakarta", position: "Guru Besar Bidang Pendidikan Agama Islam", startDate: "2020-09-02", endDate: null },
+  { id: "t28", officialId: "8", agency: "BSNP", position: "Ketua Badan Standar Nasional Pendidikan", startDate: "2019", endDate: "2021" },
+  { id: "t29", officialId: "8", agency: "BAN-S/M", position: "Ketua Badan Akreditasi Nasional Sekolah/Madrasah", startDate: "2011", endDate: "2017" },
+  { id: "t30", officialId: "8", agency: "IAIN Walisongo Semarang", position: "Dosen", startDate: "1993", endDate: "2013" },
+  { id: "t31", officialId: "9", agency: "Kejaksaan Agung Republik Indonesia", position: "Jaksa Agung RI", startDate: "2019-10-23", endDate: null },
+  { id: "t32", officialId: "9", agency: "Kejaksaan Agung RI", position: "Jaksa Agung Muda Perdata dan Tata Usaha Negara", startDate: "2011-01-01", endDate: "2014-12-31" },
+  { id: "t33", officialId: "9", agency: "Kejaksaan Agung RI", position: "Kepala Kejaksaan Tinggi Sulawesi Selatan dan Barat", startDate: "2010-01-01", endDate: "2011-01-01" },
+  { id: "t34", officialId: "9", agency: "Kejaksaan Agung RI", position: "Kepala Kejaksaan Tinggi Maluku Utara", startDate: "2008-01-01", endDate: "2009-12-31" },
+  { id: "t35", officialId: "9", agency: "Kejaksaan Agung RI", position: "Direktur Eksekusi dan Eksaminasi", startDate: "2007-01-01", endDate: "2008-01-01" },
+  { id: "t36", officialId: "9", agency: "Kejaksaan Agung RI", position: "Staf Kejaksaan Tinggi Jambi", startDate: "1989-01-01", endDate: null }
 ];
 
-const dummyCriminalRecords = [
-  { id: "c1", officialId: "1", type: "Tindak Pidana Korupsi", description: "Terlibat dalam kasus gratifikasi proyek infrastruktur.", status: "Terpidana", date: "2020-08-15", sourceName: "KPK.go.id", sourceUrl: "#" },
-  { id: "c2", officialId: "3", type: "Penyalahgunaan Wewenang", description: "Penyalahgunaan dana operasional instansi.", status: "Tersangka", date: "2023-11-05", sourceName: "Portal Hukum", sourceUrl: "#" }
-];
+const dummyCriminalRecords = [];
 
 const dummyNews = [
-  { id: "n1", officialId: "1", title: "Target Penerimaan Pajak Tercapai di Kuartal I", content: "Penerimaan pajak negara mencapai target lebih awal berkat sistem baru yang diterapkan.", sentiment: "Positif", date: "2025-04-15", sourceName: "Berita Nasional", sourceUrl: "#" },
-  { id: "n2", officialId: "1", title: "Keluhan Masyarakat Terkait Sistem E-Filing", content: "Beberapa masyarakat mengeluhkan sistem e-filing yang sering down pada akhir bulan.", sentiment: "Negatif", date: "2025-03-20", sourceName: "Kabar Rakyat", sourceUrl: "#" },
-  { id: "n3", officialId: "2", title: "Peresmian Rumah Sakit Baru di Daerah Terpencil", content: "Menteri meresmikan fasilitas kesehatan baru untuk menjangkau masyarakat pelosok.", sentiment: "Positif", date: "2025-05-10", sourceName: "Medis Update", sourceUrl: "#" },
-  { id: "n4", officialId: "4", title: "Profil Sugiono, Anak Ideologis Prabowo yang Digadang-gadang Jadi Menlu", content: "Sugiono, kader awal Partai Gerindra sejak 2008 dan lulusan Norwich University Amerika Serikat, digadang menjadi Menteri Luar Negeri. Sebelumnya ia menjabat Wakil Ketua Komisi I DPR RI yang membidangi pertahanan, luar negeri, dan intelijen, serta merupakan Direktur Kampanye Badan Pemenangan Nasional Prabowo-Sandiaga pada Pemilu 2019.", sentiment: "Positif", date: "2024-09-14", sourceName: "Tempo.co", sourceUrl: "https://nasional.tempo.co/read/1916225/profil-sugiono-anak-ideologis-prabowo-yang-digadang-gadang-jadi-menlu" },
-  { id: "n5", officialId: "4", title: "Sosok Menteri Luar Negeri Sugiono, Alumnus Berprestasi SMA Taruna Nusantara", content: "Sugiono resmi dilantik menjadi Menteri Luar Negeri ke-18 pada Kabinet Merah Putih. Ia merupakan alumni SMA Taruna Nusantara angkatan V bersama Agus Harimurti Yudhoyono dan memiliki latar belakang militer sebagai mantan perwira Kopassus serta pendidikan di Norwich University bidang Teknik Komputer.", sentiment: "Positif", date: "2024-10-26", sourceName: "Kompas.com", sourceUrl: "https://www.kompas.com/edu/read/2024/10/26/135256871/sosok-menteri-luar-negeri-sugiono-alumnus-berprestasi-sma-taruna-nusantara" },
-  { id: "n6", officialId: "5", title: "Sjafrie Sjamsoeddin, Ajudan Soeharto Kini Gantikan Prabowo di Kemenhan", content: "Sjafrie Sjamsoeddin resmi dilantik sebagai Menteri Pertahanan pada 21 Oktober 2024, menggantikan Prabowo Subianto. Ia merupakan teman seangkatan Prabowo di Akmil 1974 dan mantan ajudan Presiden Soeharto. Sjafrie sebelumnya menjabat sebagai Wakil Menteri Pertahanan periode 2010-2014.", sentiment: "Netral", date: "2024-10-21", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20241021110721-32-1157860/sjafrie-sjamsoeddin-ajudan-soeharto-kini-gantikan-prabowo-di-kemenhan" },
-  { id: "n7", officialId: "5", title: "Profil dan Kekayaan Menhan Sjafrie Sjamsoeddin di Kabinet Prabowo-Gibran", content: "Sjafrie Sjamsoeddin lahir di Makassar pada 30 Oktober 1952 dan merupakan lulusan AKABRI 1974. Ia memiliki karier militer panjang di Kopassus, pernah menjabat Pangdam Jaya pada 1997-1998, Sekjen Kemhan 2005-2010, dan Wamenhan 2010-2014 sebelum akhirnya dipercaya sebagai Menteri Pertahanan.", sentiment: "Netral", date: "2024-10-20", sourceName: "Kompas.com", sourceUrl: "https://nasional.kompas.com/read/2024/10/20/22093591/profil-dan-kekayaan-menhan-sjafrie-sjamsoeddin-di-kabinet-prabowo-gibran" },
-  { id: "n8", officialId: "6", title: "Komdigi blokir konten Magdalene, serupa pembredelan era Orde Baru", content: "Kementerian Komunikasi dan Digital di bawah Meutya Hafid menuai kritik setelah melakukan pemblokiran terhadap konten Magdalene mengenai hasil investigasi Tim Advokasi untuk Demokrasi terkait penyiraman air keras terhadap Andrie Yunus oleh anggota TNI. Organisasi masyarakat sipil menilai langkah ini berpotensi melanggar UU Pers.", sentiment: "Negatif", date: "2026-04-09", sourceName: "BBC News Indonesia", sourceUrl: "https://www.bbc.com/indonesia/articles/c0mjx7l781go" },
-  { id: "n9", officialId: "6", title: "8 Platform Patuhi PP TUNAS, Komdigi Deadline hingga Juni 2026", content: "Menteri Komunikasi dan Digital Meutya Hafid menerbitkan Peraturan Menteri Komdigi Nomor 9 Tahun 2026 sebagai aturan pelaksana PP Nomor 17 Tahun 2025 tentang Tata Kelola Penyelenggaraan Sistem Elektronik dalam Pelindungan Anak (PP TUNAS). Regulasi ini mewajibkan platform digital mematuhi aturan perlindungan anak di ruang digital.", sentiment: "Positif", date: "2026-05-09", sourceName: "SINDOnews", sourceUrl: "https://nasional.sindonews.com/read/1702287/15/8-platform-patuhi-pp-tunas-komdigi-deadline-hingga-juni-2026-1777626345" },
-  { id: "n10", officialId: "7", title: "Fadli Zon Jadi Menteri Kebudayaan, Bawa Misi Penulisan Ulang Sejarah Indonesia", content: "Fadli Zon dilantik sebagai Menteri Kebudayaan pada 21 Oktober 2024. Ia merupakan sejarawan yang meraih gelar doktor Ilmu Sejarah dari Universitas Indonesia dan mendirikan Fadli Zon Library. Sebagai Menbud, ia memprakarsai proyek penulisan ulang sejarah Indonesia yang melibatkan lebih dari seratus sejarawan.", sentiment: "Netral", date: "2024-10-21", sourceName: "Detik.com", sourceUrl: "https://news.detik.com/berita/d-7762339/dpr-lantik-anggota-paw-pengganti-fadli-zon-sugiono-ada-jamal-mirdad" },
-  { id: "n11", officialId: "7", title: "Fadli Zon Jadi Wakil Presiden Liga Parlemen Dunia untuk Palestina", content: "Fadli Zon ditunjuk sebagai Wakil Presiden Liga Parlemen Dunia untuk Al-Quds (Palestina) dalam Konferensi Liga Parlemen Dunia ketiga di Malaysia. Indonesia dipercaya oleh parlemen 40 negara untuk mengoordinasikan kegiatan parlemen dunia terkait isu Palestina.", sentiment: "Positif", date: "2020-02-10", sourceName: "Tempo.co", sourceUrl: "https://nasional.tempo.co/read/1305486/fadli-zon-jadi-wakil-presiden-liga-parlemen-dunia-untuk-palestina" },
-  { id: "n12", officialId: "8", title: "Mendikdasmen Abdul Mu'ti: Pendekatan Deep Learning Akan Diterapkan di Kurikulum Nasional", content: "Menteri Pendidikan Dasar dan Menengah Abdul Mu'ti menegaskan bahwa pendekatan deep learning melalui tiga prinsip utama yaitu mindfulness, meaningful, dan joyful akan diterapkan dalam sistem pendidikan nasional. Ia menegaskan bahwa deep learning adalah pendekatan pembelajaran, bukan pengganti Kurikulum Merdeka yang saat ini berlaku.", sentiment: "Positif", date: "2024-12-31", sourceName: "Tempo.co", sourceUrl: "https://www.tempo.co/politik/mendikdasmen-abdul-mu-ti-pendekatan-deep-learning-akan-diterapkan-di-kurikulum-nasional-1188242" },
-  { id: "n13", officialId: "8", title: "Profil Abdul Mu'ti: Tokoh Muhammadiyah yang Kini Pimpin Kemendikdasmen", content: "Abdul Mu'ti, Sekretaris Umum PP Muhammadiyah dan Guru Besar UIN Jakarta, resmi dilantik sebagai Menteri Pendidikan Dasar dan Menengah. Sebelumnya ia pernah menolak tawaran menjadi Wakil Menteri Pendidikan pada 2020 dan dikenal sebagai tokoh muslim moderat yang aktif menyuarakan perdamaian dan pluralisme.", sentiment: "Positif", date: "2024-10-21", sourceName: "Detik.com", sourceUrl: "https://news.detik.com/berita/d-6746463/abdul-muti-jelaskan-soal-krismuha-simpatisan-muhammadiyah-beragama-kristen" }
+  { id: "n1", officialId: "1", title: "Menkeu Purbaya Tegaskan Tidak Toleransi Korupsi di Kemenkeu", content: "Menteri Keuangan Purbaya Yudhi Sadewa memberikan peringatan keras kepada jajaran Kementerian Keuangan setelah KPK menangkap pegawai terkait dugaan korupsi. Ia menegaskan tidak akan ada toleransi terhadap tindak pidana korupsi di lingkungan Kemenkeu.", sentiment: "Positif", date: "2025-10-22", sourceName: "MetroTV", sourceUrl: "https://www.youtube.com/watch?v=hjQTchPiXiM" },
+  { id: "n2", officialId: "1", title: "Kontroversi Patriot Merah Putih Bond, Menkeu Purbaya Tanggapi Risiko Pencucian Uang", content: "Kontroversi muncul karena pemerintah menyatakan bahwa sumber dana yang digunakan untuk membeli instrumen Patriot Merah Putih Bond tidak akan ditelusuri. Purbaya mengakui pemerintah memahami adanya kritik bahwa perlindungan hukum dalam instrumen tersebut berpotensi membuka celah penyalahgunaan.", sentiment: "Negatif", date: "2025-12-01", sourceName: "IKPI", sourceUrl: "https://ikpi.or.id/en/menkeu-purbaya-tanggapi-kekhawatiran-risiko-pencucian-uang-di-patriot-merah-putih-bond/" },
+  { id: "n3", officialId: "1", title: "Menkeu Purbaya Sebut Singapura Tempat Penyimpanan Dana Hasil Korupsi Indonesia", content: "Menteri Keuangan Purbaya Yudhi Sadewa menyinggung Singapura sebagai tempat penyimpanan dana hasil korupsi dari Indonesia, menegaskan pentingnya repatriasi aset korupsi yang disimpan di luar negeri.", sentiment: "Positif", date: "2025-11-15", sourceName: "Detik", sourceUrl: "https://www.tiktok.com/@detikcom/video/7565004648860454152" },
+  { id: "n4", officialId: "2", title: "Peresmian Rumah Sakit Baru di Daerah Terpencil", content: "Menteri meresmikan fasilitas kesehatan baru untuk menjangkau masyarakat pelosok.", sentiment: "Positif", date: "2025-05-10", sourceName: "Medis Update", sourceUrl: "#" },
+  { id: "n5", officialId: "4", title: "Profil Sugiono, Anak Ideologis Prabowo yang Digadang-gadang Jadi Menlu", content: "Sugiono, kader awal Partai Gerindra sejak 2008 dan lulusan Norwich University Amerika Serikat, digadang menjadi Menteri Luar Negeri. Sebelumnya ia menjabat Wakil Ketua Komisi I DPR RI yang membidangi pertahanan, luar negeri, dan intelijen, serta merupakan Direktur Kampanye Badan Pemenangan Nasional Prabowo-Sandiaga pada Pemilu 2019.", sentiment: "Positif", date: "2024-09-14", sourceName: "Tempo.co", sourceUrl: "https://nasional.tempo.co/read/1916225/profil-sugiono-anak-ideologis-prabowo-yang-digadang-gadang-jadi-menlu" },
+  { id: "n6", officialId: "4", title: "Sosok Menteri Luar Negeri Sugiono, Alumnus Berprestasi SMA Taruna Nusantara", content: "Sugiono resmi dilantik menjadi Menteri Luar Negeri ke-18 pada Kabinet Merah Putih. Ia merupakan alumni SMA Taruna Nusantara angkatan V bersama Agus Harimurti Yudhoyono dan memiliki latar belakang militer sebagai mantan perwira Kopassus serta pendidikan di Norwich University bidang Teknik Komputer.", sentiment: "Positif", date: "2024-10-26", sourceName: "Kompas.com", sourceUrl: "https://www.kompas.com/edu/read/2024/10/26/135256871/sosok-menteri-luar-negeri-sugiono-alumnus-berprestasi-sma-taruna-nusantara" },
+  { id: "n7", officialId: "5", title: "Sjafrie Sjamsoeddin, Ajudan Soeharto Kini Gantikan Prabowo di Kemenhan", content: "Sjafrie Sjamsoeddin resmi dilantik sebagai Menteri Pertahanan pada 21 Oktober 2024, menggantikan Prabowo Subianto. Ia merupakan teman seangkatan Prabowo di Akmil 1974 dan mantan ajudan Presiden Soeharto.", sentiment: "Netral", date: "2024-10-21", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20241021110721-32-1157860/sjafrie-sjamsoeddin-ajudan-soeharto-kini-gantikan-prabowo-di-kemenhan" },
+  { id: "n8", officialId: "6", title: "Komdigi blokir konten Magdalene, serupa pembredelan era Orde Baru", content: "Kementerian Komunikasi dan Digital di bawah Meutya Hafid menuai kritik setelah melakukan pemblokiran terhadap konten Magdalene. Organisasi masyarakat sipil menilai langkah ini berpotensi melanggar UU Pers.", sentiment: "Negatif", date: "2026-04-09", sourceName: "BBC News Indonesia", sourceUrl: "https://www.bbc.com/indonesia/articles/c0mjx7l781go" },
+  { id: "n9", officialId: "7", title: "Fadli Zon Jadi Menteri Kebudayaan, Bawa Misi Penulisan Ulang Sejarah Indonesia", content: "Fadli Zon dilantik sebagai Menteri Kebudayaan pada 21 Oktober 2024. Ia merupakan sejarawan yang meraih gelar doktor Ilmu Sejarah dari Universitas Indonesia.", sentiment: "Netral", date: "2024-10-21", sourceName: "Detik.com", sourceUrl: "https://news.detik.com/berita/d-7762339/dpr-lantik-anggota-paw-pengganti-fadli-zon-sugiono-ada-jamal-mirdad" },
+  { id: "n10", officialId: "8", title: "Mendikdasmen Abdul Mu'ti: Pendekatan Deep Learning Akan Diterapkan di Kurikulum Nasional", content: "Menteri Pendidikan Dasar dan Menengah Abdul Mu'ti menegaskan bahwa pendekatan deep learning melalui tiga prinsip utama yaitu mindfulness, meaningful, dan joyful akan diterapkan dalam sistem pendidikan nasional.", sentiment: "Positif", date: "2024-12-31", sourceName: "Tempo.co", sourceUrl: "https://www.tempo.co/politik/mendikdasmen-abdul-mu-ti-pendekatan-deep-learning-akan-diterapkan-di-kurikulum-nasional-1188242" },
+  { id: "n11", officialId: "9", title: "Jaksa Agung ST Burhanuddin Serahkan Rp11,42 Triliun Hasil Penyelamatan Negara ke Presiden Prabowo", content: "Presiden Prabowo Subianto menyaksikan penyerahan dana hasil penyelamatan keuangan negara sebesar Rp11,42 triliun oleh Jaksa Agung ST Burhanuddin. Penyerahan tersebut merupakan hasil penagihan denda tindak pidana korupsi yang berhasil dikumpulkan Kejaksaan Agung.", sentiment: "Positif", date: "2026-04-10", sourceName: "Setneg", sourceUrl: "https://www.setneg.go.id/baca/index/presiden_prabowo_saksikan_penyerahan_rp1142_triliun_dan_ratusan_ribu_hektare_lahan_hasil_penyelamatan_ke_negara" },
+  { id: "n12", officialId: "9", title: "ST Burhanuddin Ungkap Mega Korupsi Jiwasraya dan Pertamina, Sempat Diancam", content: "Jaksa Agung ST Burhanuddin memimpin pengungkapan kasus mega korupsi Jiwasraya dan Pertamina. Dalam penanganan kasus tersebut, ia sempat mendapat ancaman dan ditawari uang namun tetap menegakkan hukum.", sentiment: "Positif", date: "2025-06-15", sourceName: "Kejaksaan Agung", sourceUrl: "https://story.kejaksaan.go.id/profil/inilah-sosok-jaksa-agung-st-burhanuddin-yang-tak-banyak-diketahui-mvk.html" },
+  { id: "n13", officialId: "9", title: "Jaksa Agung ST Burhanuddin Tuntut Kasus Suap Vonis Ronald Tannur", content: "Tim di bawah pimpinan ST Burhanuddin berhasil mengungkap kasus suap terhadap peradilan kontroversial Ronald Tannur, yang melibatkan hakim yang diduga disuap untuk memutuskan vonis bebas terhadap tersangka.", sentiment: "Positif", date: "2024-11-20", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20241120123456/jaksa-agung-tuntut-kasus-suap-ronald-tannur" }
 ];
 
 const isFirebaseConfigured = () => {
@@ -120,17 +131,21 @@ const isFirebaseConfigured = () => {
 
 // --- API Functions ---
 
-export const getOfficials = async (searchQuery = "", ministryFilter = "") => {
+export const getOfficials = async (searchQuery = "", ministryFilter = []) => {
+  const selectedMinistries = Array.isArray(ministryFilter)
+    ? ministryFilter
+    : ministryFilter ? [ministryFilter] : [];
+
+  const matchesFilters = (official) => (
+    selectedMinistries.length === 0 || selectedMinistries.includes(official.currentAgency)
+  );
+
   if (!isFirebaseConfigured()) {
-    let results = dummyOfficials.filter(o => 
-      o.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      o.currentAgency.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    if (ministryFilter) {
-      results = results.filter(o =>
-        o.currentAgency.toLowerCase().includes(ministryFilter.toLowerCase())
-      );
-    }
+    const results = dummyOfficials.filter((official) => (
+      (official.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        official.currentAgency.toLowerCase().includes(searchQuery.toLowerCase())) &&
+      matchesFilters(official)
+    ));
     return results;
   }
 
@@ -145,10 +160,8 @@ export const getOfficials = async (searchQuery = "", ministryFilter = "") => {
         o.currentAgency.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
-    if (ministryFilter) {
-      officials = officials.filter(o =>
-        o.currentAgency.toLowerCase().includes(ministryFilter.toLowerCase())
-      );
+    if (selectedMinistries.length > 0) {
+      officials = officials.filter(matchesFilters);
     }
     return officials;
   } catch (error) {
@@ -202,11 +215,9 @@ export const getTrackRecordsByOfficialId = async (officialId) => {
     const q = query(
       collection(db, "track_records"), 
       where("officialId", "==", officialId),
-      // orderBy("startDate", "desc") // requires index
     );
     const snapshot = await getDocs(q);
     const records = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    // Sort client side to avoid needing index immediately
     return records.sort((a, b) => {
       const dateA = a.startDate?.toDate ? a.startDate.toDate() : new Date(a.startDate);
       const dateB = b.startDate?.toDate ? b.startDate.toDate() : new Date(b.startDate);
