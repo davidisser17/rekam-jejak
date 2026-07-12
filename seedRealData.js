@@ -77,7 +77,7 @@ const realData = [
       name: "Yusril Ihza Mahendra",
       currentAgency: "Kemenko Hukum, HAM, Imigrasi, dan Pemasyarakatan",
       currentPosition: "Menteri Koordinator Bidang Kumham Imipas",
-      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Yusril_Ihza_Mahendra_-_Kabinet_Merah_Putih.jpg"
+      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Yusril_Ihza_Mahendra%2C_medcom_id%2C_01.49.jpg/960px-Yusril_Ihza_Mahendra%2C_medcom_id%2C_01.49.jpg"
     },
     trackRecords: [
       { position: "Menko Kumham Imipas", agency: "Kemenko Kumham Imipas", startDate: "2024-10-21", endDate: null },
@@ -148,34 +148,34 @@ const realData = [
     ]
   },
   {
-      official: {
-        name: "Purbaya Yudhi Sadewa",
-        currentAgency: "Kementerian Keuangan",
-        currentPosition: "Menteri Keuangan",
-        photoUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Purbaya_Yudhi_Sadewa%2C_Menteri_Keuangan_%282026%29.jpg"
-      },
-      trackRecords: [
-        { position: "Menteri Keuangan", agency: "Kementerian Keuangan", startDate: "2025-09-08", endDate: null },
-        { position: "Ketua Dewan Komisioner LPS", agency: "Lembaga Penjamin Simpanan", startDate: "2020-09-03", endDate: "2025-09-08" },
-        { position: "Direktur Utama Danareksa Sekuritas", agency: "PT Danareksa Sekuritas", startDate: "2006-04-01", endDate: "2008-10-31" },
-        { position: "Chief Economist", agency: "Danareksa Research Institute", startDate: "2005-07-01", endDate: "2013-03-31" },
-        { position: "Anggota Dewan Direksi PT Danareksa (Persero)", agency: "PT Danareksa (Persero)", startDate: "2013-03-01", endDate: "2015-04-30" },
-        { position: "Senior Economist", agency: "Danareksa Research Institute", startDate: "2000-10-01", endDate: "2005-07-01" },
-        { position: "Field Engineer", agency: "Schlumberger Overseas SA", startDate: "1989-01-01", endDate: "1994-12-31" }
-      ],
-      news: [
-        { title: "Menkeu Purbaya Yudhi Sadewa Tegaskan Tidak Toleransi Korupsi di Kemenkeu", content: "Menteri Keuangan Purbaya Yudhi Sadewa memberikan peringatan keras kepada jajaran Kementerian Keuangan setelah KPK menangkap pegawai terkait dugaan korupsi. Ia menegaskan tidak akan ada toleransi terhadap tindak pidana korupsi di lingkungan Kemenkeu.", sentiment: "Positif", date: "2025-10-22", sourceName: "MetroTV", sourceUrl: "https://www.youtube.com/watch?v=hjQTchPiXiM" },
-        { title: "Kontroversi Patriot Merah Putih Bond, Menkeu Purbaya Tanggapi Risiko Pencucian Uang", content: "Kontroversi muncul karena pemerintah menyatakan bahwa sumber dana yang digunakan untuk membeli instrumen Patriot Merah Putih Bond tidak akan ditelusuri. Purbaya mengakui pemerintah memahami adanya kritik bahwa perlindungan hukum dalam instrumen tersebut berpotensi membuka celah penyalahgunaan.", sentiment: "Negatif", date: "2025-12-01", sourceName: "IKPI", sourceUrl: "https://ikpi.or.id/en/menkeu-purbaya-tanggapi-kekhawatiran-risiko-pencucian-uang-di-patriot-merah-putih-bond/" },
-        { title: "Menkeu Purbaya Sebut Singapura Tempat Penyimpanan Dana Hasil Korupsi Indonesia", content: "Menteri Keuangan Purbaya Yudhi Sadewa menyinggung Singapura sebagai tempat penyimpanan dana hasil korupsi dari Indonesia, menegaskan pentingnya repatriasi aset korupsi yang disimpan di luar negeri.", sentiment: "Positif", date: "2025-11-15", sourceName: "Detik", sourceUrl: "https://www.tiktok.com/@detikcom/video/7565004648860454152" }
-      ],
-      crimes: []
+    official: {
+      name: "Purbaya Yudhi Sadewa",
+      currentAgency: "Kementerian Keuangan",
+      currentPosition: "Menteri Keuangan",
+      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Purbaya_Yudhi_Sadewa%2C_Menteri_Keuangan_%282026%29.jpg"
     },
+    trackRecords: [
+      { position: "Menteri Keuangan", agency: "Kementerian Keuangan", startDate: "2025-09-08", endDate: null },
+      { position: "Ketua Dewan Komisioner LPS", agency: "Lembaga Penjamin Simpanan", startDate: "2020-09-03", endDate: "2025-09-08" },
+      { position: "Direktur Utama Danareksa Sekuritas", agency: "PT Danareksa Sekuritas", startDate: "2006-04-01", endDate: "2008-10-31" },
+      { position: "Chief Economist", agency: "Danareksa Research Institute", startDate: "2005-07-01", endDate: "2013-03-31" },
+      { position: "Anggota Dewan Direksi PT Danareksa (Persero)", agency: "PT Danareksa (Persero)", startDate: "2013-03-01", endDate: "2015-04-30" },
+      { position: "Senior Economist", agency: "Danareksa Research Institute", startDate: "2000-10-01", endDate: "2005-07-01" },
+      { position: "Field Engineer", agency: "Schlumberger Overseas SA", startDate: "1989-01-01", endDate: "1994-12-31" }
+    ],
+    news: [
+      { title: "Menkeu Purbaya Yudhi Sadewa Tegaskan Tidak Toleransi Korupsi di Kemenkeu", content: "Menteri Keuangan Purbaya Yudhi Sadewa memberikan peringatan keras kepada jajaran Kementerian Keuangan setelah KPK menangkap pegawai terkait dugaan korupsi. Ia menegaskan tidak akan ada toleransi terhadap tindak pidana korupsi di lingkungan Kemenkeu.", sentiment: "Positif", date: "2025-10-22", sourceName: "MetroTV", sourceUrl: "https://www.youtube.com/watch?v=hjQTchPiXiM" },
+      { title: "Kontroversi Patriot Merah Putih Bond, Menkeu Purbaya Tanggapi Risiko Pencucian Uang", content: "Kontroversi muncul karena pemerintah menyatakan bahwa sumber dana yang digunakan untuk membeli instrumen Patriot Merah Putih Bond tidak akan ditelusuri. Purbaya mengakui pemerintah memahami adanya kritik bahwa perlindungan hukum dalam instrumen tersebut berpotensi membuka celah penyalahgunaan.", sentiment: "Negatif", date: "2025-12-01", sourceName: "IKPI", sourceUrl: "https://ikpi.or.id/en/menkeu-purbaya-tanggapi-kekhawatiran-risiko-pencucian-uang-di-patriot-merah-putih-bond/" },
+      { title: "Menkeu Purbaya Sebut Singapura Tempat Penyimpanan Dana Hasil Korupsi Indonesia", content: "Menteri Keuangan Purbaya Yudhi Sadewa menyinggung Singapura sebagai tempat penyimpanan dana hasil korupsi dari Indonesia, menegaskan pentingnya repatriasi aset korupsi yang disimpan di luar negeri.", sentiment: "Positif", date: "2025-11-15", sourceName: "Detik", sourceUrl: "https://www.tiktok.com/@detikcom/video/7565004648860454152" }
+    ],
+    crimes: []
+  },
   {
     official: {
       name: "Bahlil Lahadalia",
       currentAgency: "Kementerian Energi dan Sumber Daya Mineral",
       currentPosition: "Menteri ESDM",
-      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/3/36/Bahlil_Lahadalia_Menteri_ESDM.jpg"
+      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Bahlil_Lahadalia_Official_Portrait.png/960px-Bahlil_Lahadalia_Official_Portrait.png"
     },
     trackRecords: [
       { position: "Menteri ESDM", agency: "Kementerian ESDM", startDate: "2024-08-19", endDate: null },
@@ -309,32 +309,61 @@ const realData = [
       { title: "Profil Abdul Mu'ti: Tokoh Muhammadiyah yang Kini Pimpin Kemendikdasmen", content: "Abdul Mu'ti, Sekretaris Umum PP Muhammadiyah dan Guru Besar UIN Jakarta, resmi dilantik sebagai Menteri Pendidikan Dasar dan Menengah. Sebelumnya ia pernah menolak tawaran menjadi Wakil Menteri Pendidikan pada 2020 dan dikenal sebagai tokoh muslim moderat yang aktif menyuarakan perdamaian dan pluralisme.", sentiment: "Positif", date: "2024-10-21", sourceName: "Detik.com", sourceUrl: "https://news.detik.com/berita/d-6746463/abdul-muti-jelaskan-soal-krismuha-simpatisan-muhammadiyah-beragama-kristen" }
     ],
     crimes: []
-      },
-      {
-        official: {
-          name: "ST Burhanuddin",
-          currentAgency: "Kejaksaan Agung Republik Indonesia",
-          currentPosition: "Jaksa Agung RI",
-          photoUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d4/JAKSAAGUNG%2CSanitiar_Burhanuddin.jpg"
-        },
-        trackRecords: [
-          { position: "Jaksa Agung RI", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2019-10-23", endDate: null },
-          { position: "Jaksa Agung Muda Perdata dan Tata Usaha Negara", agency: "Kejaksaan Agung RI", startDate: "2011-01-01", endDate: "2014-12-31" },
-          { position: "Kepala Kejaksaan Tinggi Sulawesi Selatan dan Barat", agency: "Kejaksaan Agung RI", startDate: "2010-01-01", endDate: "2011-01-01" },
-          { position: "Kepala Kejaksaan Tinggi Maluku Utara", agency: "Kejaksaan Agung RI", startDate: "2008-01-01", endDate: "2009-12-31" },
-          { position: "Direktur Eksekusi dan Eksaminasi", agency: "Kejaksaan Agung RI", startDate: "2007-01-01", endDate: "2008-01-01" },
-          { position: "Staf Kejaksaan Tinggi Jambi", agency: "Kejaksaan Agung RI", startDate: "1989-01-01", endDate: null }
-        ],
-        news: [
-          { title: "Jaksa Agung ST Burhanuddin Serahkan Rp11,42 Triliun Hasil Penyelamatan Negara ke Presiden Prabowo", content: "Presiden Prabowo Subianto menyaksikan penyerahan dana hasil penyelamatan keuangan negara sebesar Rp11,42 triliun oleh Jaksa Agung ST Burhanuddin. Penyerahan tersebut merupakan hasil penagihan denda tindak pidana korupsi yang berhasil dikumpulkan Kejaksaan Agung.", sentiment: "Positif", date: "2026-04-10", sourceName: "Setneg", sourceUrl: "https://www.setneg.go.id/baca/index/presiden_prabowo_saksikan_penyerahan_rp1142_triliun_dan_ratusan_ribu_hektare_lahan_hasil_penyelamatan_ke_negara" },
-          { title: "ST Burhanuddin Ungkap Mega Korupsi Jiwasraya dan Pertamina, Sempat Diancam", content: "Jaksa Agung ST Burhanuddin memimpin pengungkapan kasus mega korupsi Jiwasraya dan Pertamina. Dalam penanganan kasus tersebut, ia sempat mendapat ancaman dan ditawari uang namun tetap menegakkan hukum.", sentiment: "Positif", date: "2025-06-15", sourceName: "Kejaksaan Agung", sourceUrl: "https://story.kejaksaan.go.id/profil/inilah-sosok-jaksa-agung-st-burhanuddin-yang-tak-banyak-diketahui-mvk.html" },
-          { title: "Jaksa Agung ST Burhanuddin Tuntut Kasus Suap Vonis Ronald Tannur", content: "Tim di bawah pimpinan ST Burhanuddin berhasil mengungkap kasus suap terhadap peradilan kontroversial Ronald Tannur, yang melibatkan hakim yang diduga disuap untuk memutuskan vonis bebas terhadap tersangka.", sentiment: "Positif", date: "2024-11-20", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20241120123456/jaksa-agung-tuntut-kasus-suap-ronald-tannur" }
-        ],
-        crimes: []
-      }
-    ];
+  },
+  {
+    official: {
+      name: "ST Burhanuddin",
+      currentAgency: "Kejaksaan Agung Republik Indonesia",
+      currentPosition: "Jaksa Agung RI",
+      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d4/JAKSAAGUNG%2CSanitiar_Burhanuddin.jpg"
+    },
+    trackRecords: [
+      { position: "Jaksa Agung RI", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2019-10-23", endDate: null },
+      { position: "Jaksa Agung Muda Perdata dan Tata Usaha Negara", agency: "Kejaksaan Agung RI", startDate: "2011-01-01", endDate: "2014-12-31" },
+      { position: "Kepala Kejaksaan Tinggi Sulawesi Selatan dan Barat", agency: "Kejaksaan Agung RI", startDate: "2010-01-01", endDate: "2011-01-01" },
+      { position: "Kepala Kejaksaan Tinggi Maluku Utara", agency: "Kejaksaan Agung RI", startDate: "2008-01-01", endDate: "2009-12-31" },
+      { position: "Direktur Eksekusi dan Eksaminasi", agency: "Kejaksaan Agung RI", startDate: "2007-01-01", endDate: "2008-01-01" },
+      { position: "Staf Kejaksaan Tinggi Jambi", agency: "Kejaksaan Agung RI", startDate: "1989-01-01", endDate: null }
+    ],
+    news: [
+      { title: "Jaksa Agung ST Burhanuddin Serahkan Rp11,42 Triliun Hasil Penyelamatan Negara ke Presiden Prabowo", content: "Presiden Prabowo Subianto menyaksikan penyerahan dana hasil penyelamatan keuangan negara sebesar Rp11,42 triliun oleh Jaksa Agung ST Burhanuddin. Penyerahan tersebut merupakan hasil penagihan denda tindak pidana korupsi yang berhasil dikumpulkan Kejaksaan Agung.", sentiment: "Positif", date: "2026-04-10", sourceName: "Setneg", sourceUrl: "https://www.setneg.go.id/baca/index/presiden_prabowo_saksikan_penyerahan_rp1142_triliun_dan_ratusan_ribu_hektare_lahan_hasil_penyelamatan_ke_negara" },
+      { title: "ST Burhanuddin Ungkap Mega Korupsi Jiwasraya dan Pertamina, Sempat Diancam", content: "Jaksa Agung ST Burhanuddin memimpin pengungkapan kasus mega korupsi Jiwasraya dan Pertamina. Dalam penanganan kasus tersebut, ia sempat mendapat ancaman dan ditawari uang namun tetap menegakkan hukum.", sentiment: "Positif", date: "2025-06-15", sourceName: "Kejaksaan Agung", sourceUrl: "https://story.kejaksaan.go.id/profil/inilah-sosok-jaksa-agung-st-burhanuddin-yang-tak-banyak-diketahui-mvk.html" },
+      { title: "Jaksa Agung ST Burhanuddin Tuntut Kasus Suap Vonis Ronald Tannur", content: "Tim di bawah pimpinan ST Burhanuddin berhasil mengungkap kasus suap terhadap peradilan kontroversial Ronald Tannur, yang melibatkan hakim yang diduga disuap untuk memutuskan vonis bebas terhadap tersangka.", sentiment: "Positif", date: "2024-11-20", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20241120123456/jaksa-agung-tuntut-kasus-suap-ronald-tannur" }
+    ],
+    crimes: []
+  },
+  {
+    official: {
+      name: "Febrie Adriansyah",
+      currentAgency: "Kejaksaan Agung Republik Indonesia",
+      currentPosition: "Jaksa Agung Muda Bidang Tindak Pidana Khusus (Jampidsus)",
+      photoUrl: "https://www.kantamedia.com/wp-content/uploads/2026/07/FEBRIE-ADRIANSYAH-MANTAN-JAMPIDUS.jpg",
+      isHotFigure: true
+    },
+    trackRecords: [
+      { position: "Jaksa Agung Muda Bidang Tindak Pidana Khusus (Jampidsus)", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2022-01-10", endDate: "2026-07-11" },
+      { position: "Kepala Kejaksaan Tinggi DKI Jakarta", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2021-07-29", endDate: "2022-01-10" },
+      { position: "Direktur Penyidikan Jampidsus", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2019-01-01", endDate: "2021-07-29" },
+      { position: "Kepala Kejaksaan Tinggi Nusa Tenggara Timur", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2018-01-01", endDate: "2019-01-01" },
+      { position: "Wakil Kepala Kejaksaan Tinggi DKI Jakarta", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2017-01-01", endDate: "2018-01-01" },
+      { position: "Wakil Kepala Kejaksaan Tinggi DI Yogyakarta", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2015-01-01", endDate: "2017-01-01" },
+      { position: "Kepala Kejaksaan Negeri Bandung", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2013-01-01", endDate: "2015-01-01" },
+      { position: "Asisten Tindak Pidana Khusus Kejaksaan Tinggi Jawa Timur", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2010-01-01", endDate: "2013-01-01" },
+      { position: "Kepala Seksi Intelijen Kejaksaan Negeri Sungai Penuh", agency: "Kejaksaan Agung Republik Indonesia", startDate: "1996-01-01", endDate: "2010-01-01" }
+    ],
+    news: [
+      { title: "Febrie Adriansyah Ditetapkan Tersangka Korupsi dan TPPU oleh Polri", content: "Kortastipidkor Polri resmi menetapkan mantan Jampidsus Febrie Adriansyah sebagai tersangka dugaan tindak pidana korupsi dan pencucian uang (TPPU) terkait penanganan perkara Asabri, pengadaan batu bara PLN, dan PT Krakatau Steel. Penetapan tersangka dilakukan hanya beberapa jam setelah pengunduran dirinya dari jabatan Jampidsus.", sentiment: "Negatif", date: "2026-07-11", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2026/07/11/febrie-adriansyah-ditetapkan-tersangka-korupsi-tppu" },
+      { title: "Polri Geledah Rumah Jampidsus, Sita 74 Kg Emas dan Uang Ratusan Miliar", content: "Kortastipidkor Polri menggeledah kediaman pribadi Febrie Adriansyah di Sentul, Bogor, dan kafe miliknya di Jakarta Selatan. Penyidik menemukan brankas berisi 74 kilogram emas batangan serta uang tunai dalam mata uang asing (Dolar AS dan Dolar Singapura) dengan total nilai diperkirakan mencapai Rp476 miliar.", sentiment: "Negatif", date: "2026-07-08", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-7890123/polri-geledah-rumah-jampidsus-sita-74-kg-emas" },
+      { title: "Jampidsus Febrie Adriansyah Diuntit Densus 88, Picu Ketegangan Antar-Lembaga", content: "Nama Febrie Adriansyah menjadi sorotan publik setelah beredar laporan bahwa ia diuntit oleh anggota Densus 88 Antiteror Polri. Peristiwa ini memicu ketegangan antar-lembaga penegak hukum dan menjadi awal dari rangkaian kontroversi yang menyeret Jampidsus.", sentiment: "Negatif", date: "2024-05-15", sourceName: "Tempo", sourceUrl: "https://nasional.tempo.co/read/1878901/jampidsus-febrie-adriansyah-diuntit-densus-88" }
+    ],
+    crimes: [
+      { type: "Tersangka Korupsi dan TPPU", description: "Ditetapkan sebagai tersangka oleh Kortastipidkor Polri atas dugaan tindak pidana korupsi dan tindak pidana pencucian uang (TPPU) terkait penanganan perkara PT Asabri, pengadaan batu bara PLN, dan PT Krakatau Steel. Barang bukti yang disita meliputi 74 kg emas batangan dan uang tunai senilai ratusan miliar rupiah.", status: "Tersangka", date: "2026-07-11", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2026/07/11/febrie-adriansyah-ditetapkan-tersangka-korupsi-tppu" },
+      { type: "Dugaan Penerimaan Suap Penanganan Perkara", description: "Diduga menerima suap dan gratifikasi dalam penanganan sejumlah perkara korupsi besar selama menjabat sebagai Jampidsus. Perkara ini sedang dalam proses penyidikan oleh Kortastipidkor Polri dan telah dilimpahkan ke Kejaksaan Agung.", status: "Dalam Penyidikan", date: "2026-07-08", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-7890123/polri-geledah-rumah-jampidsus-sita-74-kg-emas" }
+    ]
+  }
+];
 
-    async function clearExistingData() {
+async function clearExistingData() {
   const collections = ["officials", "track_records", "news", "criminal_records"];
   for (const collName of collections) {
     const colRef = collection(db, collName);

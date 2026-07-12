@@ -18,6 +18,7 @@ export default function OfficialDetail() {
 
   useEffect(() => {
     const fetchData = async () => {
+      window.scrollTo(0, 0);
       setLoading(true);
       const [officialData, recordsData, newsData, criminalData] = await Promise.all([
         getOfficialById(id),
@@ -68,11 +69,11 @@ export default function OfficialDetail() {
           <Link to="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-primary-600 transition-colors font-medium mb-8">
             <ArrowLeft className="w-4 h-4" /> Kembali
           </Link>
-          
+
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden bg-slate-100 shrink-0 ring-4 ring-primary-50">
-              <img 
-                src={official.photoUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(official.name)}&size=160&background=DBEAFE&color=1D4ED8&bold=true`} 
+              <img
+                src={official.photoUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(official.name)}&size=160&background=DBEAFE&color=1D4ED8&bold=true`}
                 alt={official.name}
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -81,7 +82,7 @@ export default function OfficialDetail() {
                 }}
               />
             </div>
-            
+
             <div className="text-center md:text-left flex-1">
               <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-2">
                 {official.name}
@@ -98,15 +99,15 @@ export default function OfficialDetail() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        {/* Left Column: Track Records */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sticky top-24">
+
+        {/* Left Column: Track Records & Criminal Records */}
+        <div className="lg:col-span-1 space-y-8">
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
             <div className="flex items-center gap-2 mb-6">
               <Briefcase className="w-5 h-5 text-primary-600" />
               <h3 className="text-lg font-bold text-slate-900">Riwayat Jabatan</h3>
             </div>
-            
+
             <div className="space-y-6">
               {trackRecords.map((record, idx) => (
                 <div key={record.id} className="relative pl-6 border-l-2 border-slate-200 last:border-0 pb-6 last:pb-0">
@@ -127,12 +128,12 @@ export default function OfficialDetail() {
 
           {/* Criminal Records Section */}
           {criminalRecords.length > 0 && (
-            <div className="bg-red-50 rounded-2xl shadow-sm border border-red-200 p-6 mt-8 sticky top-[420px]">
+            <div className="bg-red-50 rounded-2xl shadow-sm border border-red-200 p-6">
               <div className="flex items-center gap-2 mb-6">
                 <ShieldAlert className="w-5 h-5 text-red-600" />
                 <h3 className="text-lg font-bold text-red-900">Catatan Kriminal</h3>
               </div>
-              
+
               <div className="space-y-6">
                 {criminalRecords.map((record, idx) => (
                   <div key={record.id} className="relative pl-6 border-l-2 border-red-200 last:border-0 pb-6 last:pb-0">
@@ -178,8 +179,8 @@ export default function OfficialDetail() {
 
           <div className="space-y-4">
             {news.map(item => (
-              <a 
-                key={item.id} 
+              <a
+                key={item.id}
                 href={item.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -190,20 +191,20 @@ export default function OfficialDetail() {
                     {item.title}
                   </h4>
                   <span className={`shrink-0 px-2.5 py-1 rounded-full text-xs font-bold flex items-center gap-1
-                    ${item.sentiment === 'Positif' ? 'bg-green-100 text-green-700' : 
-                      item.sentiment === 'Negatif' ? 'bg-red-100 text-red-700' : 
-                      'bg-slate-100 text-slate-700'}`}
+                    ${item.sentiment === 'Positif' ? 'bg-green-100 text-green-700' :
+                      item.sentiment === 'Negatif' ? 'bg-red-100 text-red-700' :
+                        'bg-slate-100 text-slate-700'}`}
                   >
-                    {item.sentiment === 'Positif' ? <ThumbsUp className="w-3 h-3" /> : 
-                     item.sentiment === 'Negatif' ? <ThumbsDown className="w-3 h-3" /> : null}
+                    {item.sentiment === 'Positif' ? <ThumbsUp className="w-3 h-3" /> :
+                      item.sentiment === 'Negatif' ? <ThumbsDown className="w-3 h-3" /> : null}
                     {item.sentiment}
                   </span>
                 </div>
-                
+
                 <p className="text-slate-600 text-sm mb-4 line-clamp-2">
                   {item.content}
                 </p>
-                
+
                 <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100">
                   <div className="flex items-center gap-4 text-xs text-slate-500 font-medium">
                     <span className="flex items-center gap-1.5">

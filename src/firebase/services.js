@@ -65,6 +65,14 @@ const dummyOfficials = [
     currentAgency: "Kejaksaan Agung Republik Indonesia",
     currentPosition: "Jaksa Agung RI",
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d4/JAKSAAGUNG%2CSanitiar_Burhanuddin.jpg"
+  },
+  {
+    id: "10",
+    name: "Febrie Adriansyah",
+    currentAgency: "Kejaksaan Agung Republik Indonesia",
+    currentPosition: "Jaksa Agung Muda Bidang Tindak Pidana Khusus (Jampidsus)",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Febrie_Adriansyah.jpg",
+    isHotFigure: true
   }
 ];
 
@@ -104,10 +112,22 @@ const dummyTrackRecords = [
   { id: "t33", officialId: "9", agency: "Kejaksaan Agung RI", position: "Kepala Kejaksaan Tinggi Sulawesi Selatan dan Barat", startDate: "2010-01-01", endDate: "2011-01-01" },
   { id: "t34", officialId: "9", agency: "Kejaksaan Agung RI", position: "Kepala Kejaksaan Tinggi Maluku Utara", startDate: "2008-01-01", endDate: "2009-12-31" },
   { id: "t35", officialId: "9", agency: "Kejaksaan Agung RI", position: "Direktur Eksekusi dan Eksaminasi", startDate: "2007-01-01", endDate: "2008-01-01" },
-  { id: "t36", officialId: "9", agency: "Kejaksaan Agung RI", position: "Staf Kejaksaan Tinggi Jambi", startDate: "1989-01-01", endDate: null }
+  { id: "t36", officialId: "9", agency: "Kejaksaan Agung RI", position: "Staf Kejaksaan Tinggi Jambi", startDate: "1989-01-01", endDate: null },
+  { id: "t37", officialId: "10", agency: "Kejaksaan Agung Republik Indonesia", position: "Jaksa Agung Muda Bidang Tindak Pidana Khusus (Jampidsus)", startDate: "2022-01-10", endDate: "2026-07-11" },
+  { id: "t38", officialId: "10", agency: "Kejaksaan Agung Republik Indonesia", position: "Kepala Kejaksaan Tinggi DKI Jakarta", startDate: "2021-07-29", endDate: "2022-01-10" },
+  { id: "t39", officialId: "10", agency: "Kejaksaan Agung Republik Indonesia", position: "Direktur Penyidikan Jampidsus", startDate: "2019-01-01", endDate: "2021-07-29" },
+  { id: "t40", officialId: "10", agency: "Kejaksaan Agung Republik Indonesia", position: "Kepala Kejaksaan Tinggi Nusa Tenggara Timur", startDate: "2018-01-01", endDate: "2019-01-01" },
+  { id: "t41", officialId: "10", agency: "Kejaksaan Agung Republik Indonesia", position: "Wakil Kepala Kejaksaan Tinggi DKI Jakarta", startDate: "2017-01-01", endDate: "2018-01-01" },
+  { id: "t42", officialId: "10", agency: "Kejaksaan Agung Republik Indonesia", position: "Wakil Kepala Kejaksaan Tinggi DI Yogyakarta", startDate: "2015-01-01", endDate: "2017-01-01" },
+  { id: "t43", officialId: "10", agency: "Kejaksaan Agung Republik Indonesia", position: "Kepala Kejaksaan Negeri Bandung", startDate: "2013-01-01", endDate: "2015-01-01" },
+  { id: "t44", officialId: "10", agency: "Kejaksaan Agung Republik Indonesia", position: "Asisten Tindak Pidana Khusus Kejaksaan Tinggi Jawa Timur", startDate: "2010-01-01", endDate: "2013-01-01" },
+  { id: "t45", officialId: "10", agency: "Kejaksaan Agung Republik Indonesia", position: "Kepala Seksi Intelijen Kejaksaan Negeri Sungai Penuh", startDate: "1996-01-01", endDate: "2010-01-01" }
 ];
 
-const dummyCriminalRecords = [];
+const dummyCriminalRecords = [
+  { id: "c1", officialId: "10", type: "Tersangka Korupsi dan TPPU", description: "Ditetapkan sebagai tersangka oleh Kortastipidkor Polri atas dugaan tindak pidana korupsi dan tindak pidana pencucian uang (TPPU) terkait penanganan perkara PT Asabri, pengadaan batu bara PLN, dan PT Krakatau Steel. Barang bukti yang disita meliputi 74 kg emas batangan dan uang tunai senilai ratusan miliar rupiah.", status: "Tersangka", date: "2026-07-11", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2026/07/11/febrie-adriansyah-ditetapkan-tersangka-korupsi-tppu" },
+  { id: "c2", officialId: "10", type: "Dugaan Penerimaan Suap Penanganan Perkara", description: "Diduga menerima suap dan gratifikasi dalam penanganan sejumlah perkara korupsi besar selama menjabat sebagai Jampidsus. Perkara ini sedang dalam proses penyidikan oleh Kortastipidkor Polri dan telah dilimpahkan ke Kejaksaan Agung.", status: "Dalam Penyidikan", date: "2026-07-08", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-7890123/polri-geledah-rumah-jampidsus-sita-74-kg-emas" }
+];
 
 const dummyNews = [
   { id: "n1", officialId: "1", title: "Menkeu Purbaya Tegaskan Tidak Toleransi Korupsi di Kemenkeu", content: "Menteri Keuangan Purbaya Yudhi Sadewa memberikan peringatan keras kepada jajaran Kementerian Keuangan setelah KPK menangkap pegawai terkait dugaan korupsi. Ia menegaskan tidak akan ada toleransi terhadap tindak pidana korupsi di lingkungan Kemenkeu.", sentiment: "Positif", date: "2025-10-22", sourceName: "MetroTV", sourceUrl: "https://www.youtube.com/watch?v=hjQTchPiXiM" },
@@ -122,7 +142,10 @@ const dummyNews = [
   { id: "n10", officialId: "8", title: "Mendikdasmen Abdul Mu'ti: Pendekatan Deep Learning Akan Diterapkan di Kurikulum Nasional", content: "Menteri Pendidikan Dasar dan Menengah Abdul Mu'ti menegaskan bahwa pendekatan deep learning melalui tiga prinsip utama yaitu mindfulness, meaningful, dan joyful akan diterapkan dalam sistem pendidikan nasional.", sentiment: "Positif", date: "2024-12-31", sourceName: "Tempo.co", sourceUrl: "https://www.tempo.co/politik/mendikdasmen-abdul-mu-ti-pendekatan-deep-learning-akan-diterapkan-di-kurikulum-nasional-1188242" },
   { id: "n11", officialId: "9", title: "Jaksa Agung ST Burhanuddin Serahkan Rp11,42 Triliun Hasil Penyelamatan Negara ke Presiden Prabowo", content: "Presiden Prabowo Subianto menyaksikan penyerahan dana hasil penyelamatan keuangan negara sebesar Rp11,42 triliun oleh Jaksa Agung ST Burhanuddin. Penyerahan tersebut merupakan hasil penagihan denda tindak pidana korupsi yang berhasil dikumpulkan Kejaksaan Agung.", sentiment: "Positif", date: "2026-04-10", sourceName: "Setneg", sourceUrl: "https://www.setneg.go.id/baca/index/presiden_prabowo_saksikan_penyerahan_rp1142_triliun_dan_ratusan_ribu_hektare_lahan_hasil_penyelamatan_ke_negara" },
   { id: "n12", officialId: "9", title: "ST Burhanuddin Ungkap Mega Korupsi Jiwasraya dan Pertamina, Sempat Diancam", content: "Jaksa Agung ST Burhanuddin memimpin pengungkapan kasus mega korupsi Jiwasraya dan Pertamina. Dalam penanganan kasus tersebut, ia sempat mendapat ancaman dan ditawari uang namun tetap menegakkan hukum.", sentiment: "Positif", date: "2025-06-15", sourceName: "Kejaksaan Agung", sourceUrl: "https://story.kejaksaan.go.id/profil/inilah-sosok-jaksa-agung-st-burhanuddin-yang-tak-banyak-diketahui-mvk.html" },
-  { id: "n13", officialId: "9", title: "Jaksa Agung ST Burhanuddin Tuntut Kasus Suap Vonis Ronald Tannur", content: "Tim di bawah pimpinan ST Burhanuddin berhasil mengungkap kasus suap terhadap peradilan kontroversial Ronald Tannur, yang melibatkan hakim yang diduga disuap untuk memutuskan vonis bebas terhadap tersangka.", sentiment: "Positif", date: "2024-11-20", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20241120123456/jaksa-agung-tuntut-kasus-suap-ronald-tannur" }
+  { id: "n13", officialId: "9", title: "Jaksa Agung ST Burhanuddin Tuntut Kasus Suap Vonis Ronald Tannur", content: "Tim di bawah pimpinan ST Burhanuddin berhasil mengungkap kasus suap terhadap peradilan kontroversial Ronald Tannur, yang melibatkan hakim yang diduga disuap untuk memutuskan vonis bebas terhadap tersangka.", sentiment: "Positif", date: "2024-11-20", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20241120123456/jaksa-agung-tuntut-kasus-suap-ronald-tannur" },
+  { id: "n14", officialId: "10", title: "Febrie Adriansyah Ditetapkan Tersangka Korupsi dan TPPU oleh Polri", content: "Kortastipidkor Polri resmi menetapkan mantan Jampidsus Febrie Adriansyah sebagai tersangka dugaan tindak pidana korupsi dan pencucian uang (TPPU) terkait penanganan perkara Asabri, pengadaan batu bara PLN, dan PT Krakatau Steel.", sentiment: "Negatif", date: "2026-07-11", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2026/07/11/febrie-adriansyah-ditetapkan-tersangka-korupsi-tppu" },
+  { id: "n15", officialId: "10", title: "Polri Geledah Rumah Jampidsus, Sita 74 Kg Emas dan Uang Ratusan Miliar", content: "Kortastipidkor Polri menggeledah kediaman pribadi Febrie Adriansyah di Sentul, Bogor. Penyidik menemukan brankas berisi 74 kilogram emas batangan serta uang tunai senilai ratusan miliar rupiah.", sentiment: "Negatif", date: "2026-07-08", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-7890123/polri-geledah-rumah-jampidsus-sita-74-kg-emas" },
+  { id: "n16", officialId: "10", title: "Jampidsus Febrie Adriansyah Diuntit Densus 88, Picu Ketegangan Antar-Lembaga", content: "Nama Febrie Adriansyah menjadi sorotan publik setelah beredar laporan bahwa ia diuntit oleh anggota Densus 88 Antiteror Polri. Peristiwa ini memicu ketegangan antar-lembaga penegak hukum.", sentiment: "Negatif", date: "2024-05-15", sourceName: "Tempo", sourceUrl: "https://nasional.tempo.co/read/1878901/jampidsus-febrie-adriansyah-diuntit-densus-88" }
 ];
 
 const isFirebaseConfigured = () => {
@@ -179,9 +202,25 @@ export const getMinistries = async () => {
     const officialsCol = collection(db, 'officials');
     const snapshot = await getDocs(officialsCol);
     const officials = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return [...new Set(officials.map(o => o.currentAgency))];
+    return [...new Set(officials.map(o => o.currentAgency))].sort();
   } catch (error) {
     console.error("Error fetching ministries:", error);
+    return [];
+  }
+};
+
+export const getHotFigures = async () => {
+  if (!isFirebaseConfigured()) {
+    return dummyOfficials.filter(o => o.isHotFigure === true);
+  }
+
+  try {
+    const officialsCol = collection(db, 'officials');
+    const snapshot = await getDocs(officialsCol);
+    const officials = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return officials.filter(o => o.isHotFigure === true);
+  } catch (error) {
+    console.error("Error fetching hot figures:", error);
     return [];
   }
 };

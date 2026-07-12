@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Check, Filter, Search, Users, X } from 'lucide-react';
+import { Check, Filter, Flame, Search, Users, X, Building2, UserCircle, Newspaper, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import OfficialCard from '../components/OfficialCard';
-import { getOfficials, getMinistries } from '../firebase/services';
+import { getOfficials, getMinistries, getHotFigures, getNewsByOfficialId } from '../firebase/services';
 
 export default function Home() {
   const [officials, setOfficials] = useState([]);
@@ -11,6 +12,9 @@ export default function Home() {
   const [selectedMinistries, setSelectedMinistries] = useState([]);
   const [draftMinistries, setDraftMinistries] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [hotFigures, setHotFigures] = useState([]);
+  const [hotFigureNews, setHotFigureNews] = useState({});
+  const [hotLoading, setHotLoading] = useState(true);
 
   useEffect(() => {
     const fetchMinistries = async () => {
@@ -19,6 +23,25 @@ export default function Home() {
     };
 
     fetchMinistries();
+  }, []);
+
+  useEffect(() => {
+    const fetchHotFigures = async () => {
+      setHotLoading(true);
+      const figures = await getHotFigures();
+      setHotFigures(figures);
+
+      // Fetch latest news for each hot figure
+      const newsMap = {};
+      for (const figure of figures) {
+        const news = await getNewsByOfficialId(figure.id);
+        newsMap[figure.id] = news.slice(0, 2); // get top 2 latest news
+      }
+      setHotFigureNews(newsMap);
+      setHotLoading(false);
+    };
+
+    fetchHotFigures();
   }, []);
 
   useEffect(() => {
@@ -56,6 +79,12 @@ export default function Home() {
     setSelectedMinistries([]);
   };
 
+  const formatDate = (dateStr) => {
+    if (!dateStr) return '';
+    const date = dateStr?.toDate ? dateStr.toDate() : new Date(dateStr);
+    return new Intl.DateTimeFormat('id-ID', { year: 'numeric', month: 'short', day: 'numeric' }).format(date);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       <section className="bg-white border-b border-slate-200 pt-20 pb-16 px-4">
@@ -81,6 +110,22 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Hot Figure Section */}
+      {!hotLoading && hotFigures.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4">
+          <div className="flex items-center gap-3 mb-6">
+            <Flame className="w-6 h-6 text-red-500" />
+            <h2 className="text-2xl font-bold text-slate-900">Hot Figure</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {hotFigures.map((figure) => (
+              <OfficialCard key={figure.id} official={figure} />
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex items-center justify-between gap-4 mb-6">
