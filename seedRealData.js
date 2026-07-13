@@ -28,11 +28,11 @@ const realData = [
       { position: "Pangkostrad", agency: "TNI AD", startDate: "1998-03-20", endDate: "1998-05-22" }
     ],
     news: [
-      { title: "Prabowo Resmi Dilantik Sebagai Presiden RI ke-8", content: "Prabowo Subianto dan Gibran Rakabuming Raka resmi mengucapkan sumpah jabatan sebagai Presiden dan Wakil Presiden.", sentiment: "Positif", date: "2024-10-20", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2024/10/20/10323381/prabowo-resmi-dilantik-jadi-presiden-ke-8-ri" },
-      { title: "Program Makan Bergizi Gratis Dimulai", content: "Pemerintah mulai menjalankan program makan bergizi gratis untuk anak sekolah sebagai janji kampanye utama.", sentiment: "Positif", date: "2025-01-15", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-1234567/program-makan-bergizi-gratis-prabowo-resmi-dimulai-di-100-sekolah" }
+      { title: "Prabowo Resmi Dilantik Sebagai Presiden RI ke-8", content: "Prabowo Subianto dan Gibran Rakabuming Raka resmi mengucapkan sumpah jabatan sebagai Presiden dan Wakil Presiden.", sentiment: "Positif", date: "2024-10-20", sourceName: "Kompas", sourceUrl: "https://presidenri.go.id/siaran-pers/prabowo-subianto-dan-gibran-rakabuming-raka-resmi-dilantik-sebagai-presiden-dan-wakil-presiden-ri/" },
+      { title: "Program Makan Bergizi Gratis Dimulai", content: "Pemerintah mulai menjalankan program makan bergizi gratis untuk anak sekolah sebagai janji kampanye utama.", sentiment: "Positif", date: "2025-01-15", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-7718836/program-makan-bergizi-gratis-dimulai-hari-ini" }
     ],
     crimes: [
-      { type: "Dugaan Pelanggaran HAM Masa Lalu", description: "Diberhentikan dari militer oleh DKP tahun 1998 terkait kasus penculikan aktivis. Prabowo secara konsisten membantah tuduhan pidana dan tidak pernah dihukum oleh pengadilan sipil.", status: "Diberhentikan (Militer)", date: "1998-08-24", sourceName: "Tempo", sourceUrl: "https://nasional.tempo.co/read/1100000/dokumen-dkp-dan-pemberhentian-prabowo-dari-dinas-kemiliteran" }
+      { type: "Dugaan Pelanggaran HAM Masa Lalu", description: "Diberhentikan dari militer oleh DKP tahun 1998 terkait kasus penculikan aktivis. Prabowo secara konsisten membantah tuduhan pidana dan tidak pernah dihukum oleh pengadilan sipil.", status: "Diberhentikan (Militer)", date: "1998-08-24", sourceName: "Tempo", sourceUrl: "https://www.tempo.co/cekfakta/sebagian-benar-klaim-tentang-pemecatan-terhadap-prabowo-pada-1998-349032" }
     ]
   },
   {
@@ -47,10 +47,10 @@ const realData = [
       { position: "Wali Kota Surakarta", agency: "Pemerintah Kota Surakarta", startDate: "2021-02-26", endDate: "2024-07-19" }
     ],
     news: [
-      { title: "Gibran Tinjau Proyek Infrastruktur Bersama Presiden", content: "Wapres Gibran melakukan blusukan dan meninjau berbagai proyek strategis nasional di Jawa Tengah.", sentiment: "Positif", date: "2025-02-10", sourceName: "Antara", sourceUrl: "https://www.antaranews.com/berita/1234567/wapres-gibran-tinjau-infrastruktur-jalan-tol-solo" }
+      { title: "Gibran Tinjau Proyek Infrastruktur Bersama Presiden", content: "Wapres Gibran melakukan blusukan dan meninjau berbagai proyek strategis nasional di Jawa Tengah.", sentiment: "Positif", date: "2025-02-10", sourceName: "Antara", sourceUrl: "https://www.antaranews.com/berita/4675005/wapres-gibran-tinjau-pembangunan-tol-bawen-yogyakarta-di-sleman" }
     ],
     crimes: [
-      { type: "Kontroversi Putusan MK", description: "Lolosnya Gibran sebagai cawapres didasari Putusan MK No 90/2023 yang memicu pelanggaran etik berat oleh Anwar Usman (Paman Gibran).", status: "Kontroversi Etik", date: "2023-11-07", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20231107123456/mkmk-berhentikan-anwar-usman-buntut-putusan-usia-cawapres" }
+      { type: "Kontroversi Putusan MK", description: "Lolosnya Gibran sebagai cawapres didasari Putusan MK No 90/2023 yang memicu pelanggaran etik berat oleh Anwar Usman (Paman Gibran).", status: "Kontroversi Etik", date: "2023-11-07", sourceName: "CNN Indonesia", sourceUrl: "https://www.mkri.id/berita/-19751" }
     ]
   },
   {
@@ -66,10 +66,10 @@ const realData = [
       { position: "Wakapolri", agency: "Polri", startDate: "2015-04-22", endDate: "2016-09-09" }
     ],
     news: [
-      { title: "Budi Gunawan Pimpin Rapat Koordinasi Keamanan Nasional", content: "Menko Polkam mengumpulkan jajaran kementerian untuk merumuskan strategi penanggulangan judi online dan keamanan siber.", sentiment: "Positif", date: "2025-03-12", sourceName: "Tribun", sourceUrl: "https://www.tribunnews.com/nasional/2025/03/12/menko-polkam-budi-gunawan-pimpin-rakor-pemberantasan-judi-online" }
+      { title: "Budi Gunawan Pimpin Rapat Koordinasi Keamanan Nasional", content: "Menko Polkam mengumpulkan jajaran kementerian untuk merumuskan strategi penanggulangan judi online dan keamanan siber.", sentiment: "Positif", date: "2025-03-12", sourceName: "Tribun", sourceUrl: "https://polkam.go.id/menko-polkam-judi-online-seperti-wabah-atau-penyakit/" }
     ],
     crimes: [
-      { type: "Dugaan Rekening Gendut (Tersangka KPK)", description: "Ditetapkan sebagai tersangka kasus transaksi mencurigakan oleh KPK, namun status tersangkanya dibatalkan lewat praperadilan di PN Jakarta Selatan.", status: "Bebas (Praperadilan)", date: "2015-02-16", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2015/02/16/0945000/hakim-sarpin-kabulkan-gugatan-praperadilan-komjen-budi-gunawan" }
+      { type: "Dugaan Rekening Gendut (Tersangka KPK)", description: "Ditetapkan sebagai tersangka kasus transaksi mencurigakan oleh KPK, namun status tersangkanya dibatalkan lewat praperadilan di PN Jakarta Selatan.", status: "Bebas (Praperadilan)", date: "2015-02-16", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2015/02/16/10353331/Hakim.Kabulkan.Sebagian.Gugatan.Praperadilan.Budi.Gunawan" }
     ]
   },
   {
@@ -85,10 +85,10 @@ const realData = [
       { position: "Menkumham", agency: "Kementerian Kehakiman dan HAM", startDate: "2001-08-10", endDate: "2004-10-20" }
     ],
     news: [
-      { title: "Yusril Siapkan Reformasi Hukum Besar-besaran", content: "Menko Yusril Ihza Mahendra menyatakan pemerintah akan memfokuskan perbaikan sistem lembaga pemasyarakatan.", sentiment: "Positif", date: "2024-11-20", sourceName: "Suara", sourceUrl: "https://www.suara.com/news/2024/11/20/yusril-fokus-reformasi-sistem-lembaga-pemasyarakatan-di-indonesia" }
+      { title: "Yusril Siapkan Reformasi Hukum Besar-besaran", content: "Menko Yusril Ihza Mahendra menyatakan pemerintah akan memfokuskan perbaikan sistem lembaga pemasyarakatan.", sentiment: "Positif", date: "2024-11-20", sourceName: "Suara", sourceUrl: "https://www.ditjenpas.go.id/kementerian-imigrasi-dan-pemasyarakatan-fokuskan-kinerja-untuk-capai-hasil-optimal-104033" }
     ],
     crimes: [
-      { type: "Tersangka Korupsi Sisminbakum (SP3)", description: "Pernah ditetapkan sebagai tersangka kasus Sistem Administrasi Badan Hukum (Sisminbakum). Kasusnya kemudian dihentikan (SP3) oleh Kejaksaan Agung karena dinilai tidak cukup bukti.", status: "SP3 (Dihentikan)", date: "2012-05-31", sourceName: "Viva", sourceUrl: "https://www.viva.co.id/berita/nasional/318855-kejagung-resmi-keluarkan-sp3-kasus-yusril" }
+      { type: "Tersangka Korupsi Sisminbakum (SP3)", description: "Pernah ditetapkan sebagai tersangka kasus Sistem Administrasi Badan Hukum (Sisminbakum). Kasusnya kemudian dihentikan (SP3) oleh Kejaksaan Agung karena dinilai tidak cukup bukti.", status: "SP3 (Dihentikan)", date: "2012-05-31", sourceName: "Viva", sourceUrl: "https://www.hukumonline.com/berita/a/kejagung-hentikan-kasus-sisminbakum-lt4fc76901cd642/" }
     ]
   },
   {
@@ -104,10 +104,10 @@ const realData = [
       { position: "Ketua Umum Partai Golkar", agency: "Partai Golkar", startDate: "2017-12-13", endDate: "2024-08-11" }
     ],
     news: [
-      { title: "Airlangga Kawal Pertumbuhan Ekonomi di Atas 5 Persen", content: "Pemerintah optimis dapat menjaga momentum pertumbuhan ekonomi nasional di tengah gejolak global.", sentiment: "Positif", date: "2025-05-02", sourceName: "Bisnis", sourceUrl: "https://ekonomi.bisnis.com/read/20250502/12345/airlangga-sebut-ekonomi-kuartal-ii-tumbuh-di-atas-5-persen" }
+      { title: "Airlangga Kawal Pertumbuhan Ekonomi di Atas 5 Persen", content: "Pemerintah optimis dapat menjaga momentum pertumbuhan ekonomi nasional di tengah gejolak global.", sentiment: "Positif", date: "2025-05-02", sourceName: "Bisnis", sourceUrl: "https://nasional.kompas.com/read/2025/11/05/15595981/menko-airlangga-optimistis-pertumbuhan-ekonomi-sepanjang-2025-capai-52" }
     ],
     crimes: [
-      { type: "Dugaan Korupsi Ekspor CPO", description: "Diperiksa oleh Kejaksaan Agung selama belasan jam sebagai saksi dalam kasus dugaan korupsi pemberian izin ekspor minyak sawit mentah (CPO) dan turunannya.", status: "Saksi", date: "2023-07-24", sourceName: "CNBC Indonesia", sourceUrl: "https://www.cnbcindonesia.com/news/2023072412345/kejagung-periksa-airlangga-hartarto-terkait-kasus-cpo-12-jam" }
+      { type: "Dugaan Korupsi Ekspor CPO", description: "Diperiksa oleh Kejaksaan Agung selama belasan jam sebagai saksi dalam kasus dugaan korupsi pemberian izin ekspor minyak sawit mentah (CPO) dan turunannya.", status: "Saksi", date: "2023-07-24", sourceName: "CNBC Indonesia", sourceUrl: "https://www.kompas.com/nasional/read/2023/07/25/10550931/12-jam-airlangga-hartarto-bersaksi-di-pusaran-kasus-korupsi-minyak-goreng" }
     ]
   },
   {
@@ -123,7 +123,7 @@ const realData = [
       { position: "Ketua Umum Partai Demokrat", agency: "Partai Demokrat", startDate: "2020-03-15", endDate: null }
     ],
     news: [
-      { title: "AHY Tancap Gas Selesaikan Proyek Tol Trans Sumatera", content: "Menko AHY memastikan kelanjutan dan percepatan pembangunan infrastruktur peninggalan era sebelumnya.", sentiment: "Positif", date: "2024-12-10", sourceName: "Liputan6", sourceUrl: "https://www.liputan6.com/bisnis/read/123456/ahy-pastikan-pembangunan-tol-trans-sumatera-terus-berlanjut" }
+      { title: "AHY Tancap Gas Selesaikan Proyek Tol Trans Sumatera", content: "Menko AHY memastikan kelanjutan dan percepatan pembangunan infrastruktur peninggalan era sebelumnya.", sentiment: "Positif", date: "2024-12-10", sourceName: "Liputan6", sourceUrl: "https://mediakonstruksi.id/ahy-pastikan-pembangunan-tol-trans-sumatera-berlanjut/" }
     ],
     crimes: []
   },
@@ -141,10 +141,10 @@ const realData = [
       { position: "Menteri Kehutanan", agency: "Kementerian Kehutanan", startDate: "2009-10-22", endDate: "2014-10-01" }
     ],
     news: [
-      { title: "Zulhas Janjikan Swasembada Pangan Tercapai", content: "Menko Pangan Zulkifli Hasan menginstruksikan percepatan pencetakan sawah baru untuk mengamankan stok beras.", sentiment: "Positif", date: "2025-02-28", sourceName: "Merdeka", sourceUrl: "https://www.merdeka.com/uang/menko-zulhas-optimis-indonesia-swasembada-pangan-tahun-ini.html" }
+      { title: "Zulhas Janjikan Swasembada Pangan Tercapai", content: "Menko Pangan Zulkifli Hasan menginstruksikan percepatan pencetakan sawah baru untuk mengamankan stok beras.", sentiment: "Positif", date: "2025-02-28", sourceName: "Merdeka", sourceUrl: "https://www.merdeka.com/uang/menko-zulkifli-hasan-targetkan-indonesia-swasembada-pangan-sebelum-2028-240398-mvk.html" }
     ],
     crimes: [
-      { type: "Dugaan Suap Alih Fungsi Hutan Riau", description: "Pernah diperiksa KPK sebagai saksi terkait kasus dugaan suap revisi alih fungsi hutan di Provinsi Riau yang melibatkan mantan Gubernur Riau Annas Maamun saat ia menjabat Menteri Kehutanan.", status: "Saksi", date: "2014-11-11", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-12345/kpk-periksa-zulkifli-hasan-terkait-kasus-annas-maamun" }
+      { type: "Dugaan Suap Alih Fungsi Hutan Riau", description: "Pernah diperiksa KPK sebagai saksi terkait kasus dugaan suap revisi alih fungsi hutan di Provinsi Riau yang melibatkan mantan Gubernur Riau Annas Maamun saat ia menjabat Menteri Kehutanan.", status: "Saksi", date: "2014-11-11", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-2807906/kpk-akan-telisik-peran-zulkifli-hasan-yang-dijadikan-pegangan-annas-maamun" }
     ]
   },
   {
@@ -166,7 +166,7 @@ const realData = [
     news: [
       { title: "Menkeu Purbaya Yudhi Sadewa Tegaskan Tidak Toleransi Korupsi di Kemenkeu", content: "Menteri Keuangan Purbaya Yudhi Sadewa memberikan peringatan keras kepada jajaran Kementerian Keuangan setelah KPK menangkap pegawai terkait dugaan korupsi. Ia menegaskan tidak akan ada toleransi terhadap tindak pidana korupsi di lingkungan Kemenkeu.", sentiment: "Positif", date: "2025-10-22", sourceName: "MetroTV", sourceUrl: "https://www.youtube.com/watch?v=hjQTchPiXiM" },
       { title: "Kontroversi Patriot Merah Putih Bond, Menkeu Purbaya Tanggapi Risiko Pencucian Uang", content: "Kontroversi muncul karena pemerintah menyatakan bahwa sumber dana yang digunakan untuk membeli instrumen Patriot Merah Putih Bond tidak akan ditelusuri. Purbaya mengakui pemerintah memahami adanya kritik bahwa perlindungan hukum dalam instrumen tersebut berpotensi membuka celah penyalahgunaan.", sentiment: "Negatif", date: "2025-12-01", sourceName: "IKPI", sourceUrl: "https://ikpi.or.id/en/menkeu-purbaya-tanggapi-kekhawatiran-risiko-pencucian-uang-di-patriot-merah-putih-bond/" },
-      { title: "Menkeu Purbaya Sebut Singapura Tempat Penyimpanan Dana Hasil Korupsi Indonesia", content: "Menteri Keuangan Purbaya Yudhi Sadewa menyinggung Singapura sebagai tempat penyimpanan dana hasil korupsi dari Indonesia, menegaskan pentingnya repatriasi aset korupsi yang disimpan di luar negeri.", sentiment: "Positif", date: "2025-11-15", sourceName: "Detik", sourceUrl: "https://www.tiktok.com/@detikcom/video/7565004648860454152" }
+      { title: "Menkeu Purbaya Sebut Singapura Tempat Penyimpanan Dana Hasil Korupsi Indonesia", content: "Menteri Keuangan Purbaya Yudhi Sadewa menyinggung Singapura sebagai tempat penyimpanan dana hasil korupsi dari Indonesia, menegaskan pentingnya repatriasi aset korupsi yang disimpan di luar negeri.", sentiment: "Positif", date: "2025-11-15", sourceName: "Detik", sourceUrl: "https://rmol.id/bisnis/read/2026/07/02/712967/purbaya-sebut-singapura-jadi-tempat-penyimpanan-uang-korupsi-indonesia" }
     ],
     crimes: []
   },
@@ -183,11 +183,11 @@ const realData = [
       { position: "Menteri Investasi/Kepala BKPM", agency: "Kementerian Investasi", startDate: "2021-04-28", endDate: "2024-08-19" }
     ],
     news: [
-      { title: "Bahlil Pimpin Hilirisasi Sektor Tambang", content: "Menteri ESDM menegaskan larangan ekspor bahan mentah akan terus diperluas ke komoditas lain.", sentiment: "Positif", date: "2025-03-10", sourceName: "IDN Times", sourceUrl: "https://www.idntimes.com/news/ekonomi/12345/bahlil-tegaskan-komitmen-pemerintah-lanjutkan-hilirisasi-tambang" },
-      { title: "Kontroversi Gelar Doktor UI", content: "Universitas Indonesia menangguhkan gelar doktor Bahlil usai menuai protes dari kalangan akademisi.", sentiment: "Negatif", date: "2024-11-13", sourceName: "Tirto", sourceUrl: "https://tirto.id/universitas-indonesia-tangguhkan-kelulusan-doktor-bahlil-g1H3" }
+      { title: "Bahlil Pimpin Hilirisasi Sektor Tambang", content: "Menteri ESDM menegaskan larangan ekspor bahan mentah akan terus diperluas ke komoditas lain.", sentiment: "Positif", date: "2025-03-10", sourceName: "IDN Times", sourceUrl: "https://www.esdm.go.id/id/media-center/arsip-berita/buka-indonesia-mining-summit-menteri-bahlil-tegaskan-lagi-arahan-presiden-untuk-hilirisasi" },
+      { title: "Kontroversi Gelar Doktor UI", content: "Universitas Indonesia menangguhkan gelar doktor Bahlil usai menuai protes dari kalangan akademisi.", sentiment: "Negatif", date: "2024-11-13", sourceName: "Tirto", sourceUrl: "https://tirto.id/ui-tangguhkan-gelar-doktor-yang-didapat-bahlil-lahadalia-g5Hy" }
     ],
     crimes: [
-      { type: "Dugaan Penyalahgunaan Wewenang IUP", description: "Dilaporkan ke KPK oleh Jaringan Advokasi Tambang (JATAM) terkait dugaan korupsi dan penyalahgunaan wewenang dalam pencabutan dan pengaktifan kembali Izin Usaha Pertambangan (IUP).", status: "Dilaporkan", date: "2024-03-19", sourceName: "Tempo", sourceUrl: "https://nasional.tempo.co/read/1846543/jatam-laporkan-bahlil-ke-kpk-atas-dugaan-korupsi-cabut-izin-tambang" }
+      { type: "Dugaan Penyalahgunaan Wewenang IUP", description: "Dilaporkan ke KPK oleh Jaringan Advokasi Tambang (JATAM) terkait dugaan korupsi dan penyalahgunaan wewenang dalam pencabutan dan pengaktifan kembali Izin Usaha Pertambangan (IUP).", status: "Dilaporkan", date: "2024-03-19", sourceName: "Tempo", sourceUrl: "https://www.tempo.co/hukum/dilaporkan-jatam-ke-kpk-soal-dugaan-korupsi-izin-tambang-bahlil-saya-enggak-tahu-ya-75887" }
     ]
   },
   {
@@ -203,10 +203,10 @@ const realData = [
       { position: "Kepala BNPT", agency: "Badan Nasional Penanggulangan Terorisme", startDate: "2016-03-16", endDate: "2016-07-13" }
     ],
     news: [
-      { title: "Mendagri Apresiasi Pilkada Serentak Berjalan Damai", content: "Tito Karnavian menyebut penyelenggaraan pemerintahan daerah semakin efektif usai evaluasi menyeluruh.", sentiment: "Positif", date: "2025-01-05", sourceName: "Republika", sourceUrl: "https://news.republika.co.id/berita/12345/mendagri-tito-puji-pelaksanaan-pilkada-serentak-berjalan-kondusif" }
+      { title: "Mendagri Apresiasi Pilkada Serentak Berjalan Damai", content: "Tito Karnavian menyebut penyelenggaraan pemerintahan daerah semakin efektif usai evaluasi menyeluruh.", sentiment: "Positif", date: "2025-01-05", sourceName: "Republika", sourceUrl: "https://setkab.go.id/mendagri-tegaskan-pelaksanaan-pilkada-serentak-2024-konsisten-dengan-undang-undang/" }
     ],
     crimes: [
-      { type: "Dugaan Aliran Dana (Buku Merah)", description: "Nama Tito sempat terseret dalam laporan IndonesiaLeaks terkait 'Buku Merah' skandal impor daging sapi Basuki Hariman. Kepolisian dan KPK menyatakan tidak ada bukti valid atas dugaan tersebut.", status: "Dugaan (Tidak Terbukti)", date: "2018-10-10", sourceName: "BBC Indonesia", sourceUrl: "https://www.bbc.com/indonesia/indonesia-45791234" }
+      { type: "Dugaan Aliran Dana (Buku Merah)", description: "Nama Tito sempat terseret dalam laporan IndonesiaLeaks terkait 'Buku Merah' skandal impor daging sapi Basuki Hariman. Kepolisian dan KPK menyatakan tidak ada bukti valid atas dugaan tersebut.", status: "Dugaan (Tidak Terbukti)", date: "2018-10-10", sourceName: "BBC Indonesia", sourceUrl: "https://www.bbc.com/indonesia/articles/cn8x77vpx3wo" }
     ]
   },
   {
@@ -328,7 +328,7 @@ const realData = [
     news: [
       { title: "Jaksa Agung ST Burhanuddin Serahkan Rp11,42 Triliun Hasil Penyelamatan Negara ke Presiden Prabowo", content: "Presiden Prabowo Subianto menyaksikan penyerahan dana hasil penyelamatan keuangan negara sebesar Rp11,42 triliun oleh Jaksa Agung ST Burhanuddin. Penyerahan tersebut merupakan hasil penagihan denda tindak pidana korupsi yang berhasil dikumpulkan Kejaksaan Agung.", sentiment: "Positif", date: "2026-04-10", sourceName: "Setneg", sourceUrl: "https://www.setneg.go.id/baca/index/presiden_prabowo_saksikan_penyerahan_rp1142_triliun_dan_ratusan_ribu_hektare_lahan_hasil_penyelamatan_ke_negara" },
       { title: "ST Burhanuddin Ungkap Mega Korupsi Jiwasraya dan Pertamina, Sempat Diancam", content: "Jaksa Agung ST Burhanuddin memimpin pengungkapan kasus mega korupsi Jiwasraya dan Pertamina. Dalam penanganan kasus tersebut, ia sempat mendapat ancaman dan ditawari uang namun tetap menegakkan hukum.", sentiment: "Positif", date: "2025-06-15", sourceName: "Kejaksaan Agung", sourceUrl: "https://story.kejaksaan.go.id/profil/inilah-sosok-jaksa-agung-st-burhanuddin-yang-tak-banyak-diketahui-mvk.html" },
-      { title: "Jaksa Agung ST Burhanuddin Tuntut Kasus Suap Vonis Ronald Tannur", content: "Tim di bawah pimpinan ST Burhanuddin berhasil mengungkap kasus suap terhadap peradilan kontroversial Ronald Tannur, yang melibatkan hakim yang diduga disuap untuk memutuskan vonis bebas terhadap tersangka.", sentiment: "Positif", date: "2024-11-20", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20241120123456/jaksa-agung-tuntut-kasus-suap-ronald-tannur" }
+      { title: "Jaksa Agung ST Burhanuddin Tuntut Kasus Suap Vonis Ronald Tannur", content: "Tim di bawah pimpinan ST Burhanuddin berhasil mengungkap kasus suap terhadap peradilan kontroversial Ronald Tannur, yang melibatkan hakim yang diduga disuap untuk memutuskan vonis bebas terhadap tersangka.", sentiment: "Positif", date: "2024-11-20", sourceName: "CNN Indonesia", sourceUrl: "https://www.cnnindonesia.com/nasional/20250422152702-12-1221349/tiga-hakim-pemberi-vonis-bebas-ronald-tannur-dituntut-9-12-tahun-bui" }
     ],
     crimes: []
   },
@@ -352,13 +352,13 @@ const realData = [
       { position: "Kepala Seksi Intelijen Kejaksaan Negeri Sungai Penuh", agency: "Kejaksaan Agung Republik Indonesia", startDate: "1996-01-01", endDate: "2010-01-01" }
     ],
     news: [
-      { title: "Febrie Adriansyah Ditetapkan Tersangka Korupsi dan TPPU oleh Polri", content: "Kortastipidkor Polri resmi menetapkan mantan Jampidsus Febrie Adriansyah sebagai tersangka dugaan tindak pidana korupsi dan pencucian uang (TPPU) terkait penanganan perkara Asabri, pengadaan batu bara PLN, dan PT Krakatau Steel. Penetapan tersangka dilakukan hanya beberapa jam setelah pengunduran dirinya dari jabatan Jampidsus.", sentiment: "Negatif", date: "2026-07-11", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2026/07/11/febrie-adriansyah-ditetapkan-tersangka-korupsi-tppu" },
-      { title: "Polri Geledah Rumah Jampidsus, Sita 74 Kg Emas dan Uang Ratusan Miliar", content: "Kortastipidkor Polri menggeledah kediaman pribadi Febrie Adriansyah di Sentul, Bogor, dan kafe miliknya di Jakarta Selatan. Penyidik menemukan brankas berisi 74 kilogram emas batangan serta uang tunai dalam mata uang asing (Dolar AS dan Dolar Singapura) dengan total nilai diperkirakan mencapai Rp476 miliar.", sentiment: "Negatif", date: "2026-07-08", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-7890123/polri-geledah-rumah-jampidsus-sita-74-kg-emas" },
-      { title: "Jampidsus Febrie Adriansyah Diuntit Densus 88, Picu Ketegangan Antar-Lembaga", content: "Nama Febrie Adriansyah menjadi sorotan publik setelah beredar laporan bahwa ia diuntit oleh anggota Densus 88 Antiteror Polri. Peristiwa ini memicu ketegangan antar-lembaga penegak hukum dan menjadi awal dari rangkaian kontroversi yang menyeret Jampidsus.", sentiment: "Negatif", date: "2024-05-15", sourceName: "Tempo", sourceUrl: "https://nasional.tempo.co/read/1878901/jampidsus-febrie-adriansyah-diuntit-densus-88" }
+      { title: "Febrie Adriansyah Ditetapkan Tersangka Korupsi dan TPPU oleh Polri", content: "Kortastipidkor Polri resmi menetapkan mantan Jampidsus Febrie Adriansyah sebagai tersangka dugaan tindak pidana korupsi dan pencucian uang (TPPU) terkait penanganan perkara Asabri, pengadaan batu bara PLN, dan PT Krakatau Steel. Penetapan tersangka dilakukan hanya beberapa jam setelah pengunduran dirinya dari jabatan Jampidsus.", sentiment: "Negatif", date: "2026-07-11", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2026/07/12/09394211/3-kasus-korupsi-yang-menjerat-eks-jampidsus-febrie-adriansyah" },
+      { title: "Polri Geledah Rumah Jampidsus, Sita 74 Kg Emas dan Uang Ratusan Miliar", content: "Kortastipidkor Polri menggeledah kediaman pribadi Febrie Adriansyah di Sentul, Bogor, dan kafe miliknya di Jakarta Selatan. Penyidik menemukan brankas berisi 74 kilogram emas batangan serta uang tunai dalam mata uang asing (Dolar AS dan Dolar Singapura) dengan total nilai diperkirakan mencapai Rp476 miliar.", sentiment: "Negatif", date: "2026-07-08", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-8569182/runutan-penyitaan-uang-miliaran-74-kg-emas-hingga-jampidsus-mundur" },
+      { title: "Jampidsus Febrie Adriansyah Diuntit Densus 88, Picu Ketegangan Antar-Lembaga", content: "Nama Febrie Adriansyah menjadi sorotan publik setelah beredar laporan bahwa ia diuntit oleh anggota Densus 88 Antiteror Polri. Peristiwa ini memicu ketegangan antar-lembaga penegak hukum dan menjadi awal dari rangkaian kontroversi yang menyeret Jampidsus.", sentiment: "Negatif", date: "2024-05-15", sourceName: "Tempo", sourceUrl: "https://www.tempo.co/hukum/profil-jampidsus-febrie-adriansyah-kembali-dilaporkan-ke-kpk-pernah-dikuntit-densus-kekayaan-naik-3-kali-lipat-1219061" }
     ],
     crimes: [
-      { type: "Tersangka Korupsi dan TPPU", description: "Ditetapkan sebagai tersangka oleh Kortastipidkor Polri atas dugaan tindak pidana korupsi dan tindak pidana pencucian uang (TPPU) terkait penanganan perkara PT Asabri, pengadaan batu bara PLN, dan PT Krakatau Steel. Barang bukti yang disita meliputi 74 kg emas batangan dan uang tunai senilai ratusan miliar rupiah.", status: "Tersangka", date: "2026-07-11", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2026/07/11/febrie-adriansyah-ditetapkan-tersangka-korupsi-tppu" },
-      { type: "Dugaan Penerimaan Suap Penanganan Perkara", description: "Diduga menerima suap dan gratifikasi dalam penanganan sejumlah perkara korupsi besar selama menjabat sebagai Jampidsus. Perkara ini sedang dalam proses penyidikan oleh Kortastipidkor Polri dan telah dilimpahkan ke Kejaksaan Agung.", status: "Dalam Penyidikan", date: "2026-07-08", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-7890123/polri-geledah-rumah-jampidsus-sita-74-kg-emas" }
+      { type: "Tersangka Korupsi dan TPPU", description: "Ditetapkan sebagai tersangka oleh Kortastipidkor Polri atas dugaan tindak pidana korupsi dan tindak pidana pencucian uang (TPPU) terkait penanganan perkara PT Asabri, pengadaan batu bara PLN, dan PT Krakatau Steel. Barang bukti yang disita meliputi 74 kg emas batangan dan uang tunai senilai ratusan miliar rupiah.", status: "Tersangka", date: "2026-07-11", sourceName: "Kompas", sourceUrl: "https://nasional.kompas.com/read/2026/07/12/09394211/3-kasus-korupsi-yang-menjerat-eks-jampidsus-febrie-adriansyah" },
+      { type: "Dugaan Penerimaan Suap Penanganan Perkara", description: "Diduga menerima suap dan gratifikasi dalam penanganan sejumlah perkara korupsi besar selama menjabat sebagai Jampidsus. Perkara ini sedang dalam proses penyidikan oleh Kortastipidkor Polri dan telah dilimpahkan ke Kejaksaan Agung.", status: "Dalam Penyidikan", date: "2026-07-08", sourceName: "Detik", sourceUrl: "https://news.detik.com/berita/d-8569182/runutan-penyitaan-uang-miliaran-74-kg-emas-hingga-jampidsus-mundur" }
     ]
   }
 ];
