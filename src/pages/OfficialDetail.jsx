@@ -10,6 +10,7 @@ export default function OfficialDetail() {
   const [criminalRecords, setCriminalRecords] = useState([]);
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [expandedCrimes, setExpandedCrimes] = useState({});
 
   const toggleCrime = (idx) => {
@@ -20,17 +21,23 @@ export default function OfficialDetail() {
     const fetchData = async () => {
       window.scrollTo(0, 0);
       setLoading(true);
-      const [officialData, recordsData, newsData, criminalData] = await Promise.all([
-        getOfficialById(id),
-        getTrackRecordsByOfficialId(id),
-        getNewsByOfficialId(id),
-        getCriminalRecordsByOfficialId(id)
-      ]);
-      setOfficial(officialData);
-      setTrackRecords(recordsData);
-      setNews(newsData);
-      setCriminalRecords(criminalData);
-      setLoading(false);
+      setError(false);
+      try {
+        const [officialData, recordsData, newsData, criminalData] = await Promise.all([
+          getOfficialById(id),
+          getTrackRecordsByOfficialId(id),
+          getNewsByOfficialId(id),
+          getCriminalRecordsByOfficialId(id)
+        ]);
+        setOfficial(officialData);
+        setTrackRecords(recordsData);
+        setNews(newsData);
+        setCriminalRecords(criminalData);
+      } catch {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchData();
   }, [id]);
@@ -39,6 +46,23 @@ export default function OfficialDetail() {
     return (
       <div className="min-h-screen bg-slate-50 flex justify-center items-center">
         <div className="w-10 h-10 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-slate-50 p-8 flex flex-col items-center justify-center">
+        <AlertCircle className="w-16 h-16 text-red-400 mb-4" />
+        <h2 className="text-2xl font-bold text-slate-900 mb-2">Gagal memuat data</h2>
+        <p className="text-slate-500 text-sm mb-6">Terjadi kesalahan saat mengambil data dari server. Silakan refresh halaman.</p>
+        <button
+          type="button"
+          onClick={() => window.location.reload()}
+          className="inline-flex items-center gap-2 rounded-xl bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors"
+        >
+          Refresh Halaman
+        </button>
       </div>
     );
   }

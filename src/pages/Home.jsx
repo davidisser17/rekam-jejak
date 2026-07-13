@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Check, Filter, Flame, Search, Users, X, Building2, UserCircle, Newspaper, ArrowRight } from 'lucide-react';
+import { Check, Filter, Flame, Search, Users, X, Building2, UserCircle, Newspaper, ArrowRight, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import OfficialCard from '../components/OfficialCard';
 import { getOfficials, getMinistries, getHotFigures, getNewsByOfficialId } from '../firebase/services';
@@ -8,6 +8,7 @@ export default function Home() {
   const [officials, setOfficials] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [ministries, setMinistries] = useState([]);
   const [selectedMinistries, setSelectedMinistries] = useState([]);
   const [draftMinistries, setDraftMinistries] = useState([]);
@@ -18,8 +19,12 @@ export default function Home() {
 
   useEffect(() => {
     const fetchMinistries = async () => {
-      const data = await getMinistries();
-      setMinistries(data);
+      try {
+        const data = await getMinistries();
+        setMinistries(data);
+      } catch {
+        // ministries gagal load, filter tidak akan muncul — tidak perlu error state terpisah
+      }
     };
 
     fetchMinistries();
@@ -28,17 +33,22 @@ export default function Home() {
   useEffect(() => {
     const fetchHotFigures = async () => {
       setHotLoading(true);
-      const figures = await getHotFigures();
-      setHotFigures(figures);
+      try {
+        const figures = await getHotFigures();
+        setHotFigures(figures);
 
-      // Fetch latest news for each hot figure
-      const newsMap = {};
-      for (const figure of figures) {
-        const news = await getNewsByOfficialId(figure.id);
-        newsMap[figure.id] = news.slice(0, 2); // get top 2 latest news
+        // Fetch latest news for each hot figure
+        const newsMap = {};
+        for (const figure of figures) {
+          const news = await getNewsByOfficialId(figure.id);
+          newsMap[figure.id] = news.slice(0, 2); // get top 2 latest news
+        }
+        setHotFigureNews(newsMap);
+      } catch {
+        // hot figures gagal load, section akan disembunyikan
+      } finally {
+        setHotLoading(false);
       }
-      setHotFigureNews(newsMap);
-      setHotLoading(false);
     };
 
     fetchHotFigures();
@@ -47,9 +57,15 @@ export default function Home() {
   useEffect(() => {
     const fetchOfficials = async () => {
       setLoading(true);
-      const data = await getOfficials(searchQuery, selectedMinistries);
-      setOfficials(data);
-      setLoading(false);
+      setError(false);
+      try {
+        const data = await getOfficials(searchQuery, selectedMinistries);
+        setOfficials(data);
+      } catch {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
     };
 
     const timer = setTimeout(fetchOfficials, 300);
@@ -168,6 +184,19 @@ export default function Home() {
         {loading ? (
           <div className="flex justify-center py-12">
             <div className="w-8 h-8 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin" />
+          </div>
+        ) : error ? (
+          <div className="text-center py-16 bg-white rounded-2xl border border-red-200">
+            <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
+            <p className="text-slate-700 text-lg font-semibold mb-1">Gagal memuat data</p>
+            <p className="text-slate-500 text-sm mb-6">Terjadi kesalahan saat mengambil data dari server. Silakan refresh halaman.</p>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="inline-flex items-center gap-2 rounded-xl bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors"
+            >
+              Refresh Halaman
+            </button>
           </div>
         ) : officials.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
