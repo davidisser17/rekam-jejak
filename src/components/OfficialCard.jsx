@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Building2, UserCircle } from 'lucide-react';
+import { toOfficialParam } from '../utils/slug';
 
 export default function OfficialCard({ official }) {
   return (
     <Link 
-      to={`/pejabat/${official.id}`}
+      to={`/pejabat/${toOfficialParam(official.name, official.id)}`}
       className="group block bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md hover:border-primary-200 transition-all duration-300"
     >
       <div className="p-6">

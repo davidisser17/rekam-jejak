@@ -27,6 +27,15 @@ const firebaseConfig = {
 const BASE_URL = 'https://www.rekamjejak.digital';
 const today = new Date().toISOString().split('T')[0];
 
+function toSlug(name) {
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
+
 async function generateSitemap() {
   console.log('🔄 Mengambil data officials dari Firebase...');
 
@@ -49,7 +58,7 @@ async function generateSitemap() {
   ];
 
   const dynamicUrls = officials.map(official => ({
-    loc: `${BASE_URL}/pejabat/${official.id}`,
+    loc: `${BASE_URL}/pejabat/${toSlug(official.name)}--${official.id}`,
     lastmod: today,
     changefreq: 'weekly',
     priority: '0.8',

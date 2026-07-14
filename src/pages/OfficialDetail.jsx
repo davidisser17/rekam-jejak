@@ -3,9 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Briefcase, Newspaper, ThumbsUp, ThumbsDown, Calendar, Link as LinkIcon, AlertCircle, ShieldAlert } from 'lucide-react';
 import { getOfficialById, getTrackRecordsByOfficialId, getNewsByOfficialId, getCriminalRecordsByOfficialId } from '../firebase/services';
+import { extractIdFromParam, toOfficialParam } from '../utils/slug';
 
 export default function OfficialDetail() {
-  const { id } = useParams();
+  const { officialParam } = useParams();
+  const id = extractIdFromParam(officialParam);
   const [official, setOfficial] = useState(null);
   const [trackRecords, setTrackRecords] = useState([]);
   const [criminalRecords, setCriminalRecords] = useState([]);
@@ -99,9 +101,9 @@ export default function OfficialDetail() {
           property="og:description"
           content={`Rekam jejak lengkap ${official.name} sebagai ${official.currentPosition} di ${official.currentAgency}. Lihat riwayat jabatan, berita terkini, dan catatan publik.`}
         />
-        <meta property="og:url" content={`https://www.rekamjejak.digital/pejabat/${id}`} />
+        <meta property="og:url" content={`https://www.rekamjejak.digital/pejabat/${toOfficialParam(official.name, id)}`} />
         {official.photoUrl && <meta property="og:image" content={official.photoUrl} />}
-        <link rel="canonical" href={`https://www.rekamjejak.digital/pejabat/${id}`} />
+        <link rel="canonical" href={`https://www.rekamjejak.digital/pejabat/${toOfficialParam(official.name, id)}`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
@@ -111,7 +113,7 @@ export default function OfficialDetail() {
             "@type": "Organization",
             "name": official.currentAgency
           },
-          "url": `https://www.rekamjejak.digital/pejabat/${id}`,
+          "url": `https://www.rekamjejak.digital/pejabat/${toOfficialParam(official.name, id)}`,
           ...(official.photoUrl && { "image": official.photoUrl })
         })}</script>
       </Helmet>

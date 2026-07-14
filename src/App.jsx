@@ -13,7 +13,7 @@ function App() {
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/pejabat/:id" element={<OfficialDetail />} />
+              <Route path="/pejabat/:officialParam" element={<OfficialDetail />} />
             </Routes>
           </main>
           
