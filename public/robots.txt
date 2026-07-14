@@ -1,0 +1,12 @@
+# robots.txt for https://www.rekamjejak.digital/
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Block access to internal/build files
+Disallow: /src/
+Disallow: /*.json$
+
+# Sitemap location
+Sitemap: https://www.rekamjejak.digital/sitemap.xml
