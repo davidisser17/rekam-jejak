@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Briefcase, Newspaper, ThumbsUp, ThumbsDown, Calendar, Link as LinkIcon, AlertCircle, ShieldAlert } from 'lucide-react';
 import { getOfficialById, getTrackRecordsByOfficialId, getNewsByOfficialId, getCriminalRecordsByOfficialId } from '../firebase/services';
 
@@ -87,6 +88,34 @@ export default function OfficialDetail() {
 
   return (
     <div className="min-h-screen bg-slate-50 pb-16">
+      <Helmet>
+        <title>{`Profil ${official.name} — ${official.currentPosition} | Rekam Jejak Digital`}</title>
+        <meta
+          name="description"
+          content={`Rekam jejak lengkap ${official.name} sebagai ${official.currentPosition} di ${official.currentAgency}. Lihat riwayat jabatan, berita terkini, dan catatan publik.`}
+        />
+        <meta property="og:title" content={`Profil ${official.name} — ${official.currentPosition} | Rekam Jejak Digital`} />
+        <meta
+          property="og:description"
+          content={`Rekam jejak lengkap ${official.name} sebagai ${official.currentPosition} di ${official.currentAgency}. Lihat riwayat jabatan, berita terkini, dan catatan publik.`}
+        />
+        <meta property="og:url" content={`https://www.rekamjejak.digital/pejabat/${id}`} />
+        {official.photoUrl && <meta property="og:image" content={official.photoUrl} />}
+        <link rel="canonical" href={`https://www.rekamjejak.digital/pejabat/${id}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": official.name,
+          "jobTitle": official.currentPosition,
+          "worksFor": {
+            "@type": "Organization",
+            "name": official.currentAgency
+          },
+          "url": `https://www.rekamjejak.digital/pejabat/${id}`,
+          ...(official.photoUrl && { "image": official.photoUrl })
+        })}</script>
+      </Helmet>
+
       {/* Header/Profile Banner */}
       <div className="bg-white border-b border-slate-200 pt-8 pb-12 px-4">
         <div className="max-w-5xl mx-auto">

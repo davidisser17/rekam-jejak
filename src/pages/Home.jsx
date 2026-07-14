@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Check, Filter, Flame, Search, Users, X, Building2, UserCircle, Newspaper, ArrowRight, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import OfficialCard from '../components/OfficialCard';
@@ -103,6 +104,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <Helmet>
+        <title>Rekam Jejak Digital | Transparansi Profil & Riwayat Jabatan Pejabat Indonesia</title>
+        <meta name="description" content="Temukan profil lengkap, riwayat jabatan, catatan kriminal, dan berita terkini dari para pejabat pemerintahan di seluruh instansi Indonesia." />
+        <meta property="og:title" content="Rekam Jejak Digital | Transparansi Profil & Riwayat Jabatan Pejabat Indonesia" />
+        <meta property="og:description" content="Temukan profil lengkap, riwayat jabatan, catatan kriminal, dan berita terkini dari para pejabat pemerintahan di seluruh instansi Indonesia." />
+        <meta property="og:url" content="https://www.rekamjejak.digital/" />
+        <link rel="canonical" href="https://www.rekamjejak.digital/" />
+      </Helmet>
       <section className="bg-white border-b border-slate-200 pt-20 pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
