@@ -19,7 +19,7 @@ function App() {
           
           <footer className="bg-white border-t border-slate-200 py-8 mt-auto">
             <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
-              &copy; {new Date().getFullYear()} RekamPejabat. Portal informasi transparansi rekam jejak pejabat Indonesia.
+              &copy; {new Date().getFullYear()} RekamJejak. Portal informasi transparansi rekam jejak pejabat Indonesia.
             </div>
           </footer>
         </div>

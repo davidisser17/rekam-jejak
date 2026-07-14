@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Check, Filter, Flame, Search, Users, X, Building2, UserCircle, Newspaper, ArrowRight, AlertCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Check, Filter, Flame, Search, Users, X, AlertCircle } from 'lucide-react';
 import OfficialCard from '../components/OfficialCard';
 import { getOfficials, getMinistries, getHotFigures, getNewsByOfficialId } from '../firebase/services';
 
+const FETCH_TIMEOUT_MS = 8000;
+
 export default function Home() {
   const [officials, setOfficials] = useState([]);
+  const [inputValue, setInputValue] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -24,10 +26,9 @@ export default function Home() {
         const data = await getMinistries();
         setMinistries(data);
       } catch {
-        // ministries gagal load, filter tidak akan muncul — tidak perlu error state terpisah
+        // ministries gagal load, filter tidak akan muncul
       }
     };
-
     fetchMinistries();
   }, []);
 
@@ -37,41 +38,66 @@ export default function Home() {
       try {
         const figures = await getHotFigures();
         setHotFigures(figures);
-
-        // Fetch latest news for each hot figure
         const newsMap = {};
         for (const figure of figures) {
           const news = await getNewsByOfficialId(figure.id);
-          newsMap[figure.id] = news.slice(0, 2); // get top 2 latest news
+          newsMap[figure.id] = news.slice(0, 2);
         }
         setHotFigureNews(newsMap);
       } catch {
-        // hot figures gagal load, section akan disembunyikan
+        // hot figures gagal load, section disembunyikan
       } finally {
         setHotLoading(false);
       }
     };
-
     fetchHotFigures();
   }, []);
 
-  useEffect(() => {
-    const fetchOfficials = async () => {
-      setLoading(true);
-      setError(false);
-      try {
-        const data = await getOfficials(searchQuery, selectedMinistries);
-        setOfficials(data);
-      } catch {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchOfficials = async (query, ministries) => {
+    setLoading(true);
+    setError(false);
+    try {
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), FETCH_TIMEOUT_MS)
+      );
+      const data = await Promise.race([
+        getOfficials(query, ministries),
+        timeoutPromise,
+      ]);
+      setOfficials(data);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    const timer = setTimeout(fetchOfficials, 300);
-    return () => clearTimeout(timer);
-  }, [searchQuery, selectedMinistries]);
+  // Load awal
+  useEffect(() => {
+    fetchOfficials('', []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Re-fetch saat filter berubah
+  useEffect(() => {
+    fetchOfficials(searchQuery, selectedMinistries);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedMinistries]);
+
+  const triggerSearch = (query) => {
+    setSearchQuery(query);
+    fetchOfficials(query, selectedMinistries);
+  };
+
+  const handleSearchKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      triggerSearch(inputValue);
+    }
+  };
+
+  const handleRetry = () => {
+    fetchOfficials(searchQuery, selectedMinistries);
+  };
 
   const openFilter = () => {
     setDraftMinistries(selectedMinistries);
@@ -96,12 +122,6 @@ export default function Home() {
     setSelectedMinistries([]);
   };
 
-  const formatDate = (dateStr) => {
-    if (!dateStr) return '';
-    const date = dateStr?.toDate ? dateStr.toDate() : new Date(dateStr);
-    return new Intl.DateTimeFormat('id-ID', { year: 'numeric', month: 'short', day: 'numeric' }).format(date);
-  };
-
   return (
     <div className="min-h-screen bg-slate-50">
       <Helmet>
@@ -112,6 +132,8 @@ export default function Home() {
         <meta property="og:url" content="https://www.rekamjejak.digital/" />
         <link rel="canonical" href="https://www.rekamjejak.digital/" />
       </Helmet>
+
+      {/* Hero / Search */}
       <section className="bg-white border-b border-slate-200 pt-20 pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
@@ -127,23 +149,32 @@ export default function Home() {
             </div>
             <input
               type="text"
-              className="block w-full pl-12 pr-4 py-4 bg-white border-2 border-slate-200 rounded-2xl text-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-50 transition-all shadow-sm"
+              inputMode="search"
+              className="block w-full pl-12 pr-28 py-4 bg-white border-2 border-slate-200 rounded-2xl text-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-50 transition-all shadow-sm"
               placeholder="Cari nama pejabat atau instansi..."
-              value={searchQuery}
-              onChange={(event) => setSearchQuery(event.target.value)}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={handleSearchKeyDown}
             />
+            <button
+              type="button"
+              onClick={() => triggerSearch(inputValue)}
+              className="absolute inset-y-0 right-0 m-2 flex items-center gap-1.5 rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white hover:bg-primary-700 transition-colors"
+            >
+              <Search className="h-4 w-4" />
+              <span>Cari</span>
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Hot Figure Section */}
-      {!hotLoading && hotFigures.length > 0 && (
+      {/* Hot Figure — disembunyikan saat ada query aktif */}
+      {!hotLoading && hotFigures.length > 0 && !searchQuery && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4">
           <div className="flex items-center gap-3 mb-6">
             <Flame className="w-6 h-6 text-red-500" />
             <h2 className="text-2xl font-bold text-slate-900">Hot Figure</h2>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {hotFigures.map((figure) => (
               <OfficialCard key={figure.id} official={figure} />
@@ -152,6 +183,7 @@ export default function Home() {
         </section>
       )}
 
+      {/* Direktori Pejabat */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-3">
@@ -198,13 +230,13 @@ export default function Home() {
           <div className="text-center py-16 bg-white rounded-2xl border border-red-200">
             <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
             <p className="text-slate-700 text-lg font-semibold mb-1">Gagal memuat data</p>
-            <p className="text-slate-500 text-sm mb-6">Terjadi kesalahan saat mengambil data dari server. Silakan refresh halaman.</p>
+            <p className="text-slate-500 text-sm mb-6">Terjadi kesalahan atau koneksi terlalu lambat. Silakan coba lagi.</p>
             <button
               type="button"
-              onClick={() => window.location.reload()}
+              onClick={handleRetry}
               className="inline-flex items-center gap-2 rounded-xl bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors"
             >
-              Refresh Halaman
+              Ulangi
             </button>
           </div>
         ) : officials.length > 0 ? (
@@ -218,21 +250,31 @@ export default function Home() {
         )}
       </section>
 
+      {/* Filter Modal */}
       {isFilterOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4" role="presentation" onMouseDown={() => setIsFilterOpen(false)}>
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4"
+          role="presentation"
+          onMouseDown={() => setIsFilterOpen(false)}
+        >
           <section
             className="w-full max-w-lg rounded-2xl bg-white shadow-2xl"
             role="dialog"
             aria-modal="true"
             aria-labelledby="filter-title"
-            onMouseDown={(event) => event.stopPropagation()}
+            onMouseDown={(e) => e.stopPropagation()}
           >
             <header className="flex items-start justify-between gap-4 border-b border-slate-100 px-6 py-5">
               <div>
                 <h3 id="filter-title" className="text-lg font-bold text-slate-900">Filter instansi</h3>
                 <p className="mt-1 text-sm text-slate-500">Pilih satu atau beberapa instansi.</p>
               </div>
-              <button type="button" onClick={() => setIsFilterOpen(false)} className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-700" aria-label="Tutup filter">
+              <button
+                type="button"
+                onClick={() => setIsFilterOpen(false)}
+                className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                aria-label="Tutup filter"
+              >
                 <X className="h-5 w-5" />
               </button>
             </header>

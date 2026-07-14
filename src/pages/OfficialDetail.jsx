@@ -1,9 +1,43 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Briefcase, Newspaper, ThumbsUp, ThumbsDown, Calendar, Link as LinkIcon, AlertCircle, ShieldAlert } from 'lucide-react';
 import { getOfficialById, getTrackRecordsByOfficialId, getNewsByOfficialId, getCriminalRecordsByOfficialId } from '../firebase/services';
 import { extractIdFromParam, toOfficialParam } from '../utils/slug';
+
+// Teks yang terpotong di 2 baris — tombol "Selengkapnya" hanya muncul jika memang overflow
+function ExpandableText({ text, className = '' }) {
+  const ref = useRef(null);
+  const [isClamped, setIsClamped] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const check = () => setIsClamped(el.scrollHeight > el.clientHeight + 1);
+    check();
+    const observer = new ResizeObserver(check);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [text]);
+
+  return (
+    <div>
+      <p ref={ref} className={`${className} ${!expanded ? 'line-clamp-2' : ''}`}>
+        {text}
+      </p>
+      {(isClamped || expanded) && (
+        <button
+          type="button"
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setExpanded(v => !v); }}
+          className="mt-1 text-xs font-semibold text-primary-600 hover:text-primary-800 underline underline-offset-2 transition-colors"
+        >
+          {expanded ? 'Sembunyikan' : 'Selengkapnya'}
+        </button>
+      )}
+    </div>
+  );
+}
 
 export default function OfficialDetail() {
   const { officialParam } = useParams();
@@ -14,11 +48,6 @@ export default function OfficialDetail() {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [expandedCrimes, setExpandedCrimes] = useState({});
-
-  const toggleCrime = (idx) => {
-    setExpandedCrimes(prev => ({ ...prev, [idx]: !prev[idx] }));
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -155,7 +184,7 @@ export default function OfficialDetail() {
 
       <div className="max-w-5xl mx-auto px-4 mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-        {/* Left Column: Track Records & Criminal Records */}
+        {/* Left Column: Track Records */}
         <div className="lg:col-span-1 space-y-8">
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
             <div className="flex items-center gap-2 mb-6">
@@ -164,7 +193,7 @@ export default function OfficialDetail() {
             </div>
 
             <div className="space-y-6">
-              {trackRecords.map((record, idx) => (
+              {trackRecords.map((record) => (
                 <div key={record.id} className="relative pl-6 border-l-2 border-slate-200 last:border-0 pb-6 last:pb-0">
                   <div className="absolute w-3 h-3 bg-white border-2 border-primary-500 rounded-full -left-[7.5px] top-1"></div>
                   <h4 className="font-bold text-slate-900 leading-tight">{record.position}</h4>
@@ -180,53 +209,12 @@ export default function OfficialDetail() {
               )}
             </div>
           </div>
-
-          {/* Criminal Records Section */}
-          {criminalRecords.length > 0 && (
-            <div className="bg-red-50 rounded-2xl shadow-sm border border-red-200 p-6">
-              <div className="flex items-center gap-2 mb-6">
-                <ShieldAlert className="w-5 h-5 text-red-600" />
-                <h3 className="text-lg font-bold text-red-900">Catatan Kriminal</h3>
-              </div>
-
-              <div className="space-y-6">
-                {criminalRecords.map((record, idx) => (
-                  <div key={record.id} className="relative pl-6 border-l-2 border-red-200 last:border-0 pb-6 last:pb-0">
-                    <div className="absolute w-3 h-3 bg-red-50 border-2 border-red-500 rounded-full -left-[7.5px] top-1"></div>
-                    <div className="flex justify-between items-start gap-2">
-                      <h4 className="font-bold text-red-900 leading-tight">{record.type}</h4>
-                      <span className="text-[10px] font-bold bg-red-600 text-white px-2 py-0.5 rounded-full whitespace-nowrap">{record.status}</span>
-                    </div>
-                    <p className={`text-sm font-medium text-red-800 mt-1 ${!expandedCrimes[idx] ? 'line-clamp-2' : ''}`}>
-                      {record.description}
-                    </p>
-                    <button
-                      onClick={() => toggleCrime(idx)}
-                      className="text-xs font-semibold text-red-600 hover:text-red-800 mt-1 underline underline-offset-2 transition-colors"
-                    >
-                      {expandedCrimes[idx] ? 'Hide' : 'See more'}
-                    </button>
-                    <div className="flex items-center gap-1.5 mt-2 text-xs text-red-700">
-                      <Calendar className="w-3 h-3" />
-                      <span>{formatDate(record.date)}</span>
-                    </div>
-                    {record.sourceUrl && (
-                      <div className="mt-2 pt-2 border-t border-red-100 flex items-center gap-1.5 text-xs font-medium">
-                        <LinkIcon className="w-3 h-3 text-red-600" />
-                        <a href={record.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-red-700 hover:text-red-900 hover:underline">
-                          Sumber: {record.sourceName || 'Tautan Eksternal'}
-                        </a>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
-        {/* Right Column: News */}
+        {/* Right Column: News & Perlu Perhatian */}
         <div className="lg:col-span-2">
+
+          {/* Sorotan Berita */}
           <div className="flex items-center gap-2 mb-6">
             <Newspaper className="w-6 h-6 text-primary-600" />
             <h3 className="text-2xl font-bold text-slate-900">Sorotan Berita</h3>
@@ -256,11 +244,9 @@ export default function OfficialDetail() {
                   </span>
                 </div>
 
-                <p className="text-slate-600 text-sm mb-4 line-clamp-2">
-                  {item.content}
-                </p>
+                <ExpandableText text={item.content} className="text-slate-600 text-sm" />
 
-                <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100">
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-4 mt-3 border-t border-slate-100">
                   <div className="flex items-center gap-4 text-xs text-slate-500 font-medium">
                     <span className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5" />
@@ -281,8 +267,59 @@ export default function OfficialDetail() {
               </div>
             )}
           </div>
-        </div>
 
+          {/* Perlu Perhatian */}
+          {criminalRecords.length > 0 && (
+            <div className="mt-10">
+              <div className="flex items-center gap-2 mb-6">
+                <ShieldAlert className="w-6 h-6 text-red-600" />
+                <h3 className="text-2xl font-bold text-slate-900">Perlu Perhatian</h3>
+              </div>
+
+              <div className="space-y-4">
+                {criminalRecords.map((record) => (
+                  <div
+                    key={record.id}
+                    className="bg-white rounded-2xl shadow-sm border border-red-200 p-6"
+                  >
+                    <div className="flex justify-between items-start mb-3 gap-4">
+                      <h4 className="text-lg font-bold text-slate-900 leading-tight">
+                        {record.type}
+                      </h4>
+                      <span className="shrink-0 px-2.5 py-1 rounded-full text-xs font-bold flex items-center gap-1 whitespace-nowrap" style={{ backgroundColor: '#FEF3E2', color: '#F18F01' }}>
+                        <ShieldAlert className="w-3 h-3" />
+                        {record.status}
+                      </span>
+                    </div>
+
+                    <ExpandableText text={record.description} className="text-slate-600 text-sm" />
+
+                    <div className="flex flex-wrap items-center justify-between gap-4 pt-4 mt-3 border-t border-slate-100">
+                      <div className="flex items-center gap-4 text-xs text-slate-500 font-medium">
+                        <span className="flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5" />
+                          {formatDate(record.date)}
+                        </span>
+                        {record.sourceUrl && (
+                          <a
+                            href={record.sourceUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 text-primary-600 hover:underline"
+                          >
+                            <LinkIcon className="w-3.5 h-3.5" />
+                            {record.sourceName || 'Tautan Eksternal'}
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </div>
       </div>
     </div>
   );

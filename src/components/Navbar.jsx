@@ -8,7 +8,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16 items-center">
           <Link to="/" className="flex items-center gap-2">
             <span className="font-bold text-xl text-slate-900 tracking-tight">
-              Rekam<span className="text-primary-600">Pejabat</span>
+              Rekam<span className="text-primary-600">Jejak</span>
             </span>
           </Link>
 
