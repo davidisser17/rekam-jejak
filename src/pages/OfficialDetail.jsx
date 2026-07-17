@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Briefcase, Newspaper, ThumbsUp, ThumbsDown, Calendar, Link as LinkIcon, AlertCircle, ShieldAlert } from 'lucide-react';
+import { ArrowLeft, Briefcase, Newspaper, ThumbsUp, ThumbsDown, Calendar, Link as LinkIcon, AlertCircle, ShieldAlert, Flag } from 'lucide-react';
 import { getOfficialById, getTrackRecordsByOfficialId, getNewsByOfficialId, getCriminalRecordsByOfficialId } from '../firebase/services';
 import { extractIdFromParam, toOfficialParam } from '../utils/slug';
 
@@ -174,6 +174,12 @@ export default function OfficialDetail() {
               <div className="inline-block bg-primary-50 text-primary-700 px-4 py-2 rounded-full font-medium mb-4">
                 {official.currentPosition} di {official.currentAgency}
               </div>
+              {official.party && (
+                <div className="flex items-center justify-center md:justify-start gap-1.5 mb-4">
+                  <Flag className="w-4 h-4 text-slate-400" />
+                  <span className="text-sm font-semibold text-slate-500">{official.party}</span>
+                </div>
+              )}
               <p className="text-slate-600 max-w-2xl">
                 Profil ini menampilkan rekam jejak jabatan dan pemberitaan terkait pejabat yang bersangkutan berdasarkan data publik.
               </p>
