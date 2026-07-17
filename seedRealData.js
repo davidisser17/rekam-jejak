@@ -94,7 +94,7 @@ const realData = [
       currentAgency: "Kementerian Koordinator Bidang Politik dan Keamanan",
       currentPosition: "Menteri Koordinator Bidang Politik dan Keamanan",
       party: "Non-partisan",
-      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Menko_Polkam_Djamari_Chainago.png/800px-Menko_Polkam_Djamari_Chainago.png"
+      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Menkopolkam_Djamari_Chaniago.png/960px-Menkopolkam_Djamari_Chaniago.png"
     },
     trackRecords: [
       { position: "Menko Polkam", agency: "Kemenko Polkam", startDate: "2025-09-17", endDate: null },
@@ -139,7 +139,7 @@ const realData = [
       currentAgency: "Kementerian Koordinator Bidang Perekonomian",
       currentPosition: "Menteri Koordinator Bidang Perekonomian",
       party: "Golkar",
-      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/4/46/Airlangga_Hartarto_Menko_Perekonomian_2024.jpg"
+      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Airlangga_Hartarto.jpg/960px-Airlangga_Hartarto.jpg"
     },
     trackRecords: [
       { position: "Menko Perekonomian", agency: "Kemenko Perekonomian", startDate: "2019-10-23", endDate: null },
@@ -184,7 +184,7 @@ const realData = [
       currentAgency: "Kementerian Koordinator Bidang Pangan",
       currentPosition: "Menteri Koordinator Bidang Pangan",
       party: "PAN",
-      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Zulkifli_Hasan_Menko_Pangan_2024.jpg"
+      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Zulkifli_Hasan_MPR_Official_Portrait_%282014%29.jpg/960px-Zulkifli_Hasan_MPR_Official_Portrait_%282014%29.jpg"
     },
     trackRecords: [
       { position: "Menko Pangan", agency: "Kemenko Pangan", startDate: "2024-10-21", endDate: null },
@@ -257,7 +257,7 @@ const realData = [
       currentAgency: "Kementerian Dalam Negeri",
       currentPosition: "Menteri Dalam Negeri",
       party: "Non-partisan",
-      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/3/30/Mendagri_Tito_Karnavian_2024.jpg"
+      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Prof_Tito_Karnavian.jpg/960px-Prof_Tito_Karnavian.jpg"
     },
     trackRecords: [
       { position: "Menteri Dalam Negeri", agency: "Kementerian Dalam Negeri", startDate: "2019-10-23", endDate: null },
@@ -419,8 +419,8 @@ const realData = [
       currentAgency: "Kejaksaan Agung Republik Indonesia",
       currentPosition: "Mantan Jampidsus (Mundur 11 Juli 2026)",
       party: "Non-partisan",
-      photoUrl: "https://www.kantamedia.com/wp-content/uploads/2026/07/FEBRIE-ADRIANSYAH-MANTAN-JAMPIDUS.jpg",
-      isHotFigure: true
+      photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Jaksa_Agung_Muda_bidang_Pidana_Khusus_Febrie_Adriansyah.jpg/960px-Jaksa_Agung_Muda_bidang_Pidana_Khusus_Febrie_Adriansyah.jpg",
+      isHotFigure: false
     },
     trackRecords: [
       { position: "Jaksa Agung Muda Tindak Pidana Khusus (Jampidsus)", agency: "Kejaksaan Agung Republik Indonesia", startDate: "2022-01-10", endDate: "2026-07-11" },

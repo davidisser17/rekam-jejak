@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Building2, UserCircle, Flag } from 'lucide-react';
+import { Building2, UserCircle } from 'lucide-react';
 import { toOfficialParam } from '../utils/slug';
 
 export default function OfficialCard({ official }) {
@@ -37,12 +37,6 @@ export default function OfficialCard({ official }) {
             <p className="text-sm text-slate-600 mt-2 bg-slate-50 inline-block px-2.5 py-1 rounded-md border border-slate-100">
               {official.currentPosition}
             </p>
-            {official.party && (
-              <p className="text-xs font-semibold text-slate-500 mt-2 flex items-center gap-1.5">
-                <Flag className="w-3.5 h-3.5 shrink-0" />
-                <span>{official.party}</span>
-              </p>
-            )}
           </div>
         </div>
       </div>
